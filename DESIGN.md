@@ -22,12 +22,9 @@
 
 ## Visualisation 1: *Map of the area*
 
-- Kaart moet hierop weergegeven het onderzoeks gebied, met erover geprojecteerd een grid van de gebieden zijn onderzocht zijn. 
-- Deze kaart geeft weer waar de hoogste vondstconcentraties zijn in het gebied.
-- Het is niet duidelijk of deze interactief te maken is. 
-- Is dit mogelijk, dan moet ieder vakje klikbaar zijn om visualisatie 2 en te weer te geven foto te updaten. 
-- Zo niet, hiervoor een drop down lijst gebruiken. 
-- Vervangend dan visualisatie 4.
+- Map of the research area, overlay with a grid
+- grid shows the defined areas that have been surveyed
+- each polygon of the grid is collor coded to indicate the find density
 
 ## Visualisation 2: *Bar chart vondst per type*
 
