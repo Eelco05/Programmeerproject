@@ -2,13 +2,16 @@
 
 ## Nieuwe manier om Archeologische Fieldsurvey's te visualiseren
 
-Dit zijn archeologische field survey's: 
+Dit zijn archeologische field survey's:
+
 ![Field survey](/doc/image1.jpg)
 
-Dit is wat ze opleveren: 
+Dit is wat ze opleveren:
+
 ![Field survey](/doc/image2.jpg)
 
-Plus nog een hele hoop data. Deze wordt echter maar op een beperkte manieren gevisualiseerd (naast de standaard grafieken): 
+Plus nog een hele hoop data. Deze wordt echter maar op een beperkte manieren gevisualiseerd (naast de standaard grafieken):
+
 ![Field survey](/doc/image3.jpg)
 ![Field survey](/doc/image4.jpg)
 ![Field survey](/doc/image5.jpg)
