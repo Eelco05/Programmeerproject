@@ -2,6 +2,8 @@
 
 ## Nieuwe manier om Archeologische Fieldsurvey's te visualiseren
 
+### by Eelco Alink
+
 Dit zijn archeologische field survey's:
 
 ![Field survey](/doc/image1.jpg)
