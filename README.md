@@ -2,4 +2,4 @@
 
 # Nieuwe manier om Archeologische Fieldsurvey's te visualiseren
 
-dit is wat ik ga doen:
+voor het voorstel, zie het odt bestand in de doc folder
