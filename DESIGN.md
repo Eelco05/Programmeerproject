@@ -1,17 +1,17 @@
 # Design
 
-## Wat heb ik nodig?
+## What do i need?
 
 - data
-- drie/vier visualisaties
-- korte beschrijving van gebied en geschiedenis
-- doelstellingen van het onderzoek
-- links naar relevant ander onderzoek
-- (optioneel) vondst foto's
+- 3/4 visualisations
+- brief description of the area and its history
+- research goals
+- links to other relevant research
+- (optional) vind pictures
 
 ## Data
 
-nog geen duidelijk idee hoe deze gestructureerd is. Kan ik mogelijk vanmiddag of morgen bij docent ophalen.
+- data will be a combination of MS access database, shapefiles, ESRI Geodatabase, .tiff images (often RAW)
 
 ## Visualisatie 1: *Kaart gebied*
 
