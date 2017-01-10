@@ -1,10 +1,8 @@
 # README
 
-# Nieuwe manier om Archeologische Fieldsurvey's te visualiseren
+## Nieuwe manier om Archeologische Fieldsurvey's te visualiseren
 
-Manier om Archeologische Fieldsurvey's te visualiseren
-
-Dit zijn archeologische field survey's: *zie image1.jpg*
+Dit zijn archeologische field survey's: ![Field survey](/doc/image1.jpg)
 Dit is wat ze opleveren: *zie image2.jpg*
 
 Plus nog een hele hoop data. Deze wordt echter maar op een beperkte manieren gevisualiseerd (naast de standaard grafieken): *zie image3.jpg, image4.jpg, image5.jpg*
