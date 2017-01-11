@@ -8,17 +8,39 @@ html, body {
     line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
     text-align: center;
 }
 
-#datamap {
-    max-width: 50%;
+#wrapper {
+    display: flex;
+    justify-content: left;
+    width: 99%;
+    margin-left: 5px;
+    margin-right: 5px;
+    border:1px solid red;
+}
+
+#datamap, #bar, #image {
     height: 400px;
-    margin-left: 10px;
+    margin: 10px;
+    width: 50%;
+    border: 1px solid #888;
 }
 
-#textbox {
-    margin-left: 50%;
+#bar {
+    text-align: center;
 }
 
+#image {
+    display: block;
+    width: 50%;
+    height: auto;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
