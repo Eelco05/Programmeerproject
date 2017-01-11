@@ -31,11 +31,12 @@
 
 - This needs to show at least two variables, namelijk the different types of vinds and their amounts
 - Will initially show the total amount of vinds of the entire area, but will change according to the selected polygon in Vis1
-- Also linked to this is the image database. This will initialy show a random or prominent vind of the entire assemblage, <br> but will change according to the highlighted polygon
+- Also linked to this is the image database. This will initialy show a random or prominent vind of the entire assemblage, <br> but will change according to the highlighted polygon.
+- Further changes and datamanipulation will be possible for the user via a slider. However, what this will actually be changing <br> will strongly depend on the research aims of the project which data i will be using
 
 ## Visualisation 3: *Diverging bar chart*
 
-- Geeft weer de totale aantallen van vondsten per jaartal en vondstcategorie.
+- Must finds should have, at least, a rough dating attached to them. This visualisation is meant to convey the relation between the <br> amount of find, their type and their date. This way 
 
 ## Visualisation 4: *Nog niet duidelijk wat*
 
@@ -44,4 +45,4 @@
 
 ## Images
 
-- shows an image of the the vinds done in a specific spot, selected via 
+- shows an image of the the vinds done in a specific spot, selected via vis1
