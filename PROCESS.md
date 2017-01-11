@@ -7,6 +7,8 @@
 
 ## Day 3 11-01-'17
 ### Standup
-- Is heel veel om te doen, zal keuzes moeten maken over de wat ik daadwerkelijk wil visualiseren
+- The entirity of the project will be a lot of work, need to make choices about the data i actually want to visualise
 
-###
+### Work
+- work on my design, making it more detailed
+- started with a preliminary prototype
