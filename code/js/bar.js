@@ -1,4 +1,4 @@
-var margin = {top: 50, right: 20, bottom: 10, left: 65},
+var margin = {top: 100, right: 20, bottom: 10, left: 100},
     width = 480 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
@@ -28,7 +28,7 @@ var svg = d3.select("#figure").append("svg")
 
   color.domain(["Pottery", "Metal", "Stone", "Organic", "Undefined"]);
 
-  d3.csv("/data/raw_data.csv", function(error, data) {
+  d3.csv("data/raw_data.csv", function(error, data) {
 
   data.forEach(function(d) {
     // calc percentages
@@ -103,7 +103,7 @@ var svg = d3.select("#figure").append("svg")
 
   var startp = svg.append("g").attr("class", "legendbox").attr("id", "mylegendbox");
   // this is not nice, we should calculate the bounding box and use that
-  var legend_tabs = [0, 120, 200, 375, 450];
+  var legend_tabs = [0, 75, 150, 225, 300];
   var legend = startp.selectAll(".legend")
       .data(color.domain().slice())
     .enter().append("g")

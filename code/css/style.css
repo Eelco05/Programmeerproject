@@ -12,24 +12,30 @@ h1, h2, h3 {
     text-align: center;
 }
 
+img {
+    width: 100%;
+    height: 100%;
+}
+
 #wrapper {
     display: flex;
     justify-content: left;
     width: 99%;
     margin-left: 5px;
     margin-right: 5px;
-    border:1px solid red;
+    /*border:1px solid red;*/
 }
 
 #datamap, #bar, #image {
     height: 400px;
-    margin: 10px;
+    margin: 5px;
     width: 50%;
-    border: 1px solid #888;
+    /*border: 1px solid #888;*/
 }
 
 #bar {
     text-align: center;
+    vertical-align: top;
 }
 
 #image {
