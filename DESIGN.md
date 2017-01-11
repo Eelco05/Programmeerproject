@@ -7,7 +7,7 @@
 - brief description of the area and its history
 - research goals
 - links to other relevant research
-- (optional) vind pictures
+- (optional) find pictures
 
 ## Think about
 
@@ -24,11 +24,14 @@
 
 - Map of the research area, overlay with a grid
 - grid shows the defined areas that have been surveyed
-- each polygon of the grid is collor coded to indicate the find density
+- each polygon of the grid is color coded to indicate the find density
+- Will have (at least innitially) a drop down to select a specific area to examine in visualisation 2
 
-## Visualisation 2: *Bar chart vondst per type*
+## Visualisation 2: *Barchart of the different amount of vinds per selected square*
 
-- Geeft weer aantallen van de verschillende typen vondsten die in een onderdeel van het onderzoeksgebied zijn gedaan.
+- This needs to show at least two variables, namelijk the different types of vinds and their amounts
+- Will initially show the total amount of vinds of the entire area, but will change according to the selected polygon in Vis1
+- Also linked to this is the image database. This will initialy show a random or prominent vind of the entire assemblage, <br> but will change according to the highlighted polygon
 
 ## Visualisation 3: *Diverging bar chart*
 
