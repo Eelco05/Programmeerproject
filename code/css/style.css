@@ -1,0 +1,24 @@
+/* Index page */
+
+html, body {
+    background-color: lightblue;
+    color: #424242;
+    font-family: Lora, serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+}
+
+#datamap {
+    max-width: 50%;
+    height: 400px;
+    margin-left: 10px;
+}
+
+#textbox {
+    margin-left: 50%;
+}
+
