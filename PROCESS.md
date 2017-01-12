@@ -20,8 +20,8 @@
 
 ## Day 4 12-01-'17
 ### Standup
-- 
+- need the data to be able to further the project
 
 ### Work
 - added non-functioning drop down list
--
+- started on Zoom for image
