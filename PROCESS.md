@@ -20,7 +20,7 @@
 
 ## Day 4 12-01-'17
 ### Standup
--
+- neem the data to get a better view of what
 
 ### Work
 - added non-functioning drop down list
