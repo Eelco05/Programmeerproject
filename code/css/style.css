@@ -34,7 +34,7 @@ img {
 }
 
 #bar {
-    text-align: center;
+    text-align: left;
     vertical-align: top;
 }
 
@@ -49,4 +49,45 @@ img {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: lightblue;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    float: right;
+    position: absolute;
+    display: inline-block;
+    border: solid 1px black;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f3f3f3}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #ABDDA4;
 }
