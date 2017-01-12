@@ -12,3 +12,16 @@
 ### Work
 - work on my design, making it more detailed
 - started with a preliminary prototype
+- added zoomed in datamap of Italy as placeholder
+- divergent stacked bar chart
+- two find images as placeholders
+- two text block for future text
+- styled everything with css float en flex utility
+
+## Day 4 12-01-'17
+### Standup
+-
+
+### Work
+- added non-functioning drop down list
+-

@@ -17,8 +17,8 @@
     <script src="js/queue.min.js"></script>
     <script src="js/datamaps.ita.min.js"></script>
     <script src="js/datamaps.world.min.js"></script>
+    <script src="js/imageZoom.js"></script>
 </head>
-
 <body>
     <h1>View of an Archaeological survey</h1>
     <nav class="navbar navbar-default">
@@ -70,8 +70,11 @@
         <div id='image'>
             <img src="img/image2.jpg">
         </div>
-        <div id='image'>
-            <img src="img/image2.jpg">
-        </div>
+        <div id='dyna'>
+          <svg id='imageZoom'width="960" height="500">
+            <g>
+              <image xlink:href="img/image2.jpg" x="455" y="225" width="50" height="50"></image>
+            </g>
+          </svg>
     </div>
 </body>
