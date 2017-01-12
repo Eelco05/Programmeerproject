@@ -21,7 +21,6 @@
 ## Day 4 12-01-'17
 ### Standup
 - 
-- ![Field survey](/doc/prototype_screen_12_01.jpg)
 
 ### Work
 - added non-functioning drop down list
