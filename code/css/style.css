@@ -31,7 +31,7 @@ img {
     /*border:1px solid red;*/
 }
 
-#datamap, #bar, #image {
+#datamap, #bar, #image, #intro {
     height: 400px;
     margin: 5px;
     width: 50%;
