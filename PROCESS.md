@@ -25,3 +25,14 @@
 ### Work
 - added non-functioning drop down list
 - started on Zoom for image
+- important to visualise amount of find per period (Pie chart?)
+- installing MS office to be able to get to database (.ACCDB)
+- got csv data of the Sacred Landscape Project. Deliberately mangled it to protect the research (random deletion)
+- added test html to help import of data
+
+## Day 5 13-01-'17
+### Work
+- need to have a good thing about my whole design
+- data i have contains the list of vinds for the entire Sacred Landscape Project in Molise, Italy
+- put zoom on hold, this will only be available when there is enough time
+- used <a href="http://bl.ocks.org/NPashaP/96447623ef4d342ee09b">dashboard</a> example as placeholder/inspiration for visualisation of the amount of finds or weight per historical era
