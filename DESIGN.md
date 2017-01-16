@@ -51,9 +51,15 @@ More about these projects <a href="http://www.surveyarchaeology.eu/Sacred+Landsc
 - Also linked to this is the image database. This will initialy show a random or prominent vind of the entire assemblage, but will change according to the highlighted polygon.
 - Further changes and datamanipulation will be possible for the user via a slider. However, what this will actually be changing will strongly depend on the research aims of the project which data i will be using -->
 
-## Visualisation 2/3: *Connected pie and*
+## Visualisation 2/3: *Connected pie and barchart*
 
 <!-- - Must finds should have, at least, a rough dating attached to them. This visualisation is meant to convey the relation between the amount of find, their type and their date. This way, the user can compare the amount of find per area to their historical period. -->
+- Piechart shows the percentages of the different types of finds
+	- CER will take up about 98%
+	- Others will combine to abvout 2%
+	- Both will be clickable
+		- When clicking on CER, it will update to show the different ceramic wares
+		- When clicking on Other, it will show the
 
 ## Visualisation 3: *Not Clear*
 
