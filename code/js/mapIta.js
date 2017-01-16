@@ -7,9 +7,9 @@ var bubble_map = new Datamap({
 	},
   	setProjection: function(element) {
 		var projection = d3.geo.mercator()
-		.center([14.665286, 41.564891])
+		.center([14.739759, 41.471510])
 		.rotate([0, 0])
-		.scale(6000)
+		.scale(12000)
 		.translate([element.offsetWidth / 2, element.offsetHeight / 2]);
 		var path = d3.geo.path().projection(projection);
 
@@ -17,17 +17,25 @@ var bubble_map = new Datamap({
     },
     fills: {
     defaultFill: '#ABDDA4',
-    ITA: 'red',
+    Site: 'red',
   }
 });
 bubble_map.bubbles([
   {
-    name: 'Project Area',
-    city: 'Molise CB, Italy',
-    radius: 20,
-    fillKey: 'ITA',
-    latitude: 41.631457,
-    longitude: 14.491797
+    name: 'Samnite Sancuary',
+    city: 'San Giovanni in Galdo, Italy',
+    radius: 10,
+    fillKey: 'Site',
+    latitude: 41.590720,
+    longitude: 14.752160
+  },
+  {
+    name: 'Samnite Sancuary',
+    city: 'Gildone, Italy',
+    radius: 10,
+    fillKey: 'Site',
+    latitude: 41.510343,
+    longitude: 14.739780
   }
 ], {
 	popupTemplate: function(geo, data) {

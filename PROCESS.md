@@ -36,3 +36,20 @@
 - data i have contains the list of vinds for the entire Sacred Landscape Project in Molise, Italy
 - put zoom on hold, this will only be available when there is enough time
 - used <a href="http://bl.ocks.org/NPashaP/96447623ef4d342ee09b">dashboard</a> example as placeholder/inspiration for visualisation of the amount of finds or weight per historical era
+
+### Presentation
+- Need to overhaul my concept of which visualisations i need to use. The data i have doesn't support the visualisations i was planning. Need visualisations that support the data!
+
+## Day 5 13-01-'17
+
+### Standup
+- Make definitive what Vis#3 will be and finish and discuss again the Design by end of today
+- Then make plan for the week
+
+### Work
+- Redid design
+- got grip an data an data formatting
+- plan for next week:
+	- *Tuesday* rewrite dashboard to take data
+	- *Wednesday* finish functionality dashboard, start Vis#3
+	- *Thursday* finish functionaly Vis#3

@@ -33,6 +33,7 @@ More about these projects <a href="http://www.surveyarchaeology.eu/Sacred+Landsc
 	- Total/weight finds per Campaign year/Site/Era;
 	- Find types per Site/Era
 	- Amount of different ceramic wares
+- importData.js configured to parse data to correct format
 
 ## Map of the area
 
@@ -44,25 +45,27 @@ More about these projects <a href="http://www.surveyarchaeology.eu/Sacred+Landsc
 - Drop down to zoom into the two main research area's
 - Maybe highlight surveyed area as a polygon, if coördinates becaume available and i have time to implement this
 
-## Visualisation 1: **
+## Visualisation 1/2: *Connected pie and barchart*
+
+<!-- - Must finds should have, at least, a rough dating attached to them. This visualisation is meant to convey the relation between the amount of find, their type and their date. This way, the user can compare the amount of find per area to their historical period. -->
+- Vis#3 will be a Piechart that shows the percentages of the different types of finds
+	- CER will take up about 99,7%
+	- Others will combine to abvout 0.2%
+	- Both will be clickable
+		- When clicking on CER, it will update to show the different ceramic wares
+		- When clicking on Other, it will update to show the different non-CER finds types
+
+- Both will update Vis#3, a barchart that shows the absolute totals 
+	- switch between numbers and weight via buttom
+
+## Visualisation 3: *Divergent stacked barchart*
 
 <!-- - This needs to show at least two variables, namelijk the different types of vinds and their amounts
 - Will initially show the total amount of vinds of the entire area, but will change according to the selected polygon in Vis1
 - Also linked to this is the image database. This will initialy show a random or prominent vind of the entire assemblage, but will change according to the highlighted polygon.
 - Further changes and datamanipulation will be possible for the user via a slider. However, what this will actually be changing will strongly depend on the research aims of the project which data i will be using -->
-
-## Visualisation 2/3: *Connected pie and barchart*
-
-<!-- - Must finds should have, at least, a rough dating attached to them. This visualisation is meant to convey the relation between the amount of find, their type and their date. This way, the user can compare the amount of find per area to their historical period. -->
-- Piechart shows the percentages of the different types of finds
-	- CER will take up about 98%
-	- Others will combine to abvout 2%
-	- Both will be clickable
-		- When clicking on CER, it will update to show the different ceramic wares
-		- When clicking on Other, it will show the
-
-## Visualisation 3: *Not Clear*
-
+- Needs to show the find types per era
+- Era's can be a single period, but can also span multiple periods
 
 
 ## Images
