@@ -28,7 +28,7 @@
 - important to visualise amount of find per period (Pie chart?)
 - installing MS office to be able to get to database (.ACCDB)
 - got csv data of the Sacred Landscape Project. Deliberately mangled it to protect the research (random deletion)
-- added test html to help import of data
+- added test.html and importData.js to help import of data
 
 ## Day 5 13-01-'17
 ### Work

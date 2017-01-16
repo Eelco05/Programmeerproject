@@ -15,10 +15,12 @@
 
 ## Data
 
-- data will be a combination of MS access database, shapefiles, ESRI Geodatabase, .tiff images (often RAW)
+<!-- - data will be a combination of MS access database, shapefiles, ESRI Geodatabase, .tiff images (often RAW)
 - to restructure and use this data for visualisations is going to take some time
 - best suggested way of doing so will probably be to convert seperate elements of the database to json files
-- shapefile might be used to create the first visualisation
+- shapefile might be used to create the first visualisation -->
+- Data is an access database about the finds done in three years of the Sacred Landscapes Project.
+More about these projects <a href="http://www.surveyarchaeology.eu/Sacred+Landscape+Project"> here </a> and <a href="https://landscapesofearlyromancolonization.com/fieldwork/slp/">here</a>
 
 ## Visualisation 1: *Map of the area*
 

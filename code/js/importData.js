@@ -16,7 +16,7 @@
 //   })
 
 
-var periodsCampaign  = {}
+var numberEra  = {}
 
 d3.csv('data/meta/SLP_total_magled.csv', function(data) {
   
@@ -26,29 +26,20 @@ d3.csv('data/meta/SLP_total_magled.csv', function(data) {
 
   byEra.forEach(function(d){
     // console.log("2", d);
-    periodsCampaign[d.key] = {}
-    console.log("before",periodsCampaign)
-    var byEra = d3.nest().key(function(e) { return e.Number }).entries(d.values)
-    // console.log("3", byEra);
-    // byEra.forEach(function(f) {
-      periodsCampaign[d.key] = d.values
+    numberEra[d.key] = {}
+    // console.log("before", periodsCampaign)
+    var byNumber = d3.nest().key(function(e) { return +e.Number }).entries(d.values)
+    // console.log("era", d.values);
+    // console.log("Number", byNumber);
+    var i = 0;
+    byNumber.forEach(function(f) {
+      // console.log(d.values)
+      // console.log(i);
+      numberEra[d.key][f.key] += d.values[i].Number
+      i += 1;
       // console.log("1", periodsCampaign);
-    // })
+    })
   })
 });
 
-console.log("4", periodsCampaign);
-
-// var data = {};
-
-// d3.csv('data/meta/SLP_total_magled.csv', function(data) {
-//     var byEra = d3.nest().key(function(d) { return d.Era }).entries(data);
-//     console.log("byEra", byEra);
-//     byEra.forEach(function(d) {
-//       console.log(d.values.Number[1])
-
-//       data[d.key] = d.values.Number
-//     })
-// });
-
-// console.log("data", data);
+console.log("4", numberEra);
