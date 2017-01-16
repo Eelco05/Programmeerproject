@@ -21,6 +21,8 @@
 - shapefile might be used to create the first visualisation -->
 - Data is an access database about the finds done in three years of the Sacred Landscapes Project.
 More about these projects <a href="http://www.surveyarchaeology.eu/Sacred+Landscape+Project"> here </a> and <a href="https://landscapesofearlyromancolonization.com/fieldwork/slp/">here</a>
+- Variables i can work with:
+	- Campain year; Site ID; Find type; (Ceramic) Ware; Number (of vinds); Weight; Era;
 
 ## Visualisation 1: *Map of the area*
 
