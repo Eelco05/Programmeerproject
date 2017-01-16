@@ -50,6 +50,6 @@
 - Redid design
 - got grip an data an data formatting
 - plan for next week:
-	- *Tuesday* rewrite dashboard to take data
-	- *Wednesday* finish functionality dashboard, start Vis#3
-	- *Thursday* finish functionaly Vis#3
+	- **Tuesday**: Rewrite dashboard to take data
+	- **Wednesday**: Finish functionality dashboard, start Vis#3
+	- **Thursday**: Finish functionaly Vis#3
