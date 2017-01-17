@@ -1,11 +1,11 @@
 function dashboard(id, fData){
-    var barColor = 'red';
+    console.log(fData);
+    var barColor = 'steelblue';
     function segColor(c){ return {low:"#807dba", mid:"#e08214",high:"#41ab5d"}[c]; }
     
     // compute total for each state.
     fData.forEach(function(d){
         d.total=d.freq.low+d.freq.mid+d.freq.high;
-        console.log(d.total);
     });
     
     // function to handle histogram.
@@ -211,4 +211,7 @@ var freqData=[
             ,{State:'KS',freq:{low:162, mid:379, high:471}}
             ];
 
+console.log("freqData", freqData)
+
 dashboard('#dashboard',freqData);
+
