@@ -58,12 +58,6 @@ img {
 
 /* dashboard */
 
-/*#dashboard {
-    width:1060px;
-    margin:50px auto;
-    border: 2px solid black;
-}*/
-
 path {  stroke: #fff; }
 path:hover {  opacity:0.9; }
 rect:hover {  fill:blue; }

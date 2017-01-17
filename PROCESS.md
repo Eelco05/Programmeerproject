@@ -40,7 +40,7 @@
 ### Presentation
 - Need to overhaul my concept of which visualisations i need to use. The data i have doesn't support the visualisations i was planning. Need visualisations that support the data!
 
-## Day 5 13-01-'17
+## Day 6 16-01-'17
 
 ### Standup
 - Make definitive what Vis#3 will be and finish and discuss again the Design by end of today
@@ -53,3 +53,13 @@
 	- **Tuesday**: Rewrite dashboard to take data
 	- **Wednesday**: Finish functionality dashboard, start Vis#3
 	- **Thursday**: Finish functionaly Vis#3
+
+## Day 7 16-01-'17
+
+### Standup
+- Couldn't get to the Uni today, electrical failure shut down all trains to Amsterdam
+
+### Work
+- Not my most productive day
+- Did some redesign of my page, now seperate html's
+- 
