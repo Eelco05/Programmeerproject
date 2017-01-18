@@ -1,44 +1,12 @@
-d3.json('data/meta/SLP_total_magled.json', function(data) {
-
-  var type = d3.nest()
-  .key(function(d) { return d.Type; })
-  .key(function(d) { return "SLP"+d.Campaign.split("-")[1]; })
-  .rollup(function(e) { return d3.sum(e, function(d) { return +d.Number; })
-    })
-  .map(data);
-
-  console.log("json_type", type)
-  console.log(freqData)
-
-  dashboard('#dashboard', type);
-});
-
 function dashboard(id, fData){
-    // console.log("type in dashboard", fData)
+    console.log(fData);
     var barColor = 'steelblue';
-    function segColor(c){ return {2004:"#807dba",2005:"#e08214",2008:"#41ab5d"}[c]; }
-
-    // function segColor(c){ return {
-    //   CER:"#d53e4f",
-    //   GLA:"#fc8d59",
-    //   MET:"#fee08b",
-    //   SHE:"#e6f598",
-    //   STO:"#99d594",
-    //   VAR:"#3288bd",
-    // }[c];}
-
-    console.log("bla1", fData.CER)
+    function segColor(c){ return {low:"#807dba", mid:"#e08214",high:"#41ab5d"}[c]; }
 
     // compute total for each state.
-    fData.CER.forEach(function(d){
-        d.CER.total=d.CER.SLP2004+d.CER.y2005+d.CER.y2008;
-        // d.GLA.totalGLA=d.GLA.y2004.totNum+d.GLA.y2005.totNum+d.GLA.y2008.totNum;
-        // d.MET.totalMET=d.MET.y2004.totNum+d.MET.y2005.totNum+d.MET.y2008.totNum;
-        // d.SHE.totalSHE=d.SHE.y2004.totNum+d.SHE.y2005.totNum+d.SHE.y2008.totNum;
-        // d.STO.totalSTO=d.STO.y2004.totNum+d.STO.y2005.totNum+d.STO.y2008.totNum;
-        // d.VAR.totalVAR=d.VAR.y2004.totNum+d.VAR.y2005.totNum+d.VAR.y2008.totNum;
+    fData.forEach(function(d){
+        d.total=d.freq.low+d.freq.mid+d.freq.high;
     });
-    console.log("bla2", fData)
 
     // function to handle histogram.
     function histoGram(fD){
@@ -244,3 +212,18 @@ var freqData=[
             ];
 
 // console.log("freqData", freqData)
+
+d3.json('data/meta/SLP_total_magled.json', function(data) {
+
+  var type = d3.nest()
+  .key(function(d) { return d.Type; })
+  .rollup(function(e) { return {
+    totNum: d3.sum(e, function(d) { return d.Number; })
+    }
+  })
+  .map(data);
+
+  console.log("json_totWare", type)
+
+  dashboard('#dashboard',freqData);
+});
