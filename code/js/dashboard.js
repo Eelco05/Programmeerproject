@@ -1,43 +1,81 @@
-d3.json('data/meta/SLP_total_magled.json', function(data) {
+var obj = [
+   {find:"STO",year:{SLP2004:31,SLP2005:71,SLP2008:0}}
+   ,{find:"GLA",year:{SLP2004:7,SLP2005:2,SLP2008:0}}
+  //  ,{find:"CER",year:{SLP2004:12767,SLP2005:10646,SLP2008:382}}
+   ,{find:"MET",year:{SLP2004:9,SLP2005:1,SLP2008:0}}
+   ,{find:"SHE",year:{SLP2004:1,SLP2005:0,SLP2008:0}}
+   ,{find:"VAR",year:{SLP2004:0,SLP2005:13,SLP2008:0}}
+];
 
-  var type = d3.nest()
-  .key(function(d) { return d.Type; })
-  .key(function(d) { return "SLP"+d.Campaign.split("-")[1]; })
-  .rollup(function(e) { return d3.sum(e, function(d) { return +d.Number; })
-    })
-  .map(data);
+var ware = [
+  {find:"ARCH",year:{"SLP2004":12,"SLP2005":0,"SLP2008":0}}
+  ,{find:"ARS",year:{"SLP2004":39,"SLP2005":27,"SLP2008":0}}
+  ,{find:"AU",year:{"SLP2004":7,"SLP2005":4,"SLP2008":0}}
+  ,{find:"BACINO",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
+  ,{find:"BG",year:{"SLP2004":134,"SLP2005":120,"SLP2008":0}}
+  ,{find:"CC",year:{"SLP2004":193,"SLP2005":10,"SLP2008":0}}
+  ,{find:"CD",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
+  ,{find:"CKW",year:{"SLP2004":8,"SLP2005":0,"SLP2008":0}}
+  ,{find:"CP",year:{"SLP2004":34,"SLP2005":5,"SLP2008":0}}
+  ,{find:"CW",year:{"SLP2004":2301,"SLP2005":6,"SLP2008":116}}
+  ,{find:"CW1",year:{"SLP2004":237,"SLP2005":1724,"SLP2008":0}}
+  ,{find:"CW2",year:{"SLP2004":124,"SLP2005":621,"SLP2008":0}}
+  ,{find:"DO",year:{"SLP2004":22,"SLP2008":1}}
+  ,{find:"DO1",year:{"SLP2004":53,"SLP2005":54,"SLP2008":0}}
+  ,{find:"DO2",year:{"SLP2004":39,"SLP2005":24,"SLP2008":0}}
+  ,{find:"FW",year:{"SLP2004":2,"SLP2005":0,"SLP2008":0}}
+  ,{find:"GL",year:{"SLP2004":74,"SLP2005":312,"SLP2008":22}}
+  ,{find:"GML",year:{"SLP2004":4,"SLP2005":0,"SLP2008":0}}
+  ,{find:"IMB",year:{"SLP2004":835,"SLP2005":142,"SLP2008":3}}
+  ,{find:"IMC",year:{"SLP2004":15,"SLP2005":0,"SLP2008":0}}
+  ,{find:"IMP",year:{"SLP2004":815,"SLP2005":371,"SLP2008":0}}
+  ,{find:"ITS",year:{"SLP2004":4,"SLP2005":19,"SLP2008":0}}
+  ,{find:"LGP",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
+  ,{find:"LW",year:{"SLP2004":7,"SLP2005":3,"SLP2008":0}}
+  ,{find:"MS",year:{"SLP2004":5,"SLP2005":0,"SLP2008":0}}
+  ,{find:"OC",year:{"SLP2004":15,"SLP2005":0,"SLP2008":0}}
+  ,{find:"PMJ",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
+  ,{find:"PRW",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
+  ,{find:"PS",year:{"SLP2004":8,"SLP2005":0,"SLP2008":0}}
+  ,{find:"PW",year:{"SLP2004":792,"SLP2005":571,"SLP2008":4}}
+  ,{find:"RBT",year:{"SLP2004":29,"SLP2005":143,"SLP2008":27}}
+  ,{find:"RTW",year:{"SLP2004":2,"SLP2005":10,"SLP2008":0}}
+  ,{find:"STR",year:{"SLP2004":14,"SLP2005":1,"SLP2008":0}}
+  ,{find:"STV",year:{"SLP2004":52,"SLP2005":0,"SLP2008":0}}
+  ,{find:"SV",year:{"SLP2004":6,"SLP2005":0,"SLP2008":0}}
+  ,{find:"TER",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
+  ,{find:"TERARCH",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
+  ,{find:"TERFIG",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
+  ,{find:"TIL",year:{"SLP2004":3569,"SLP2005":1301,"SLP2008":10}}
+  ,{find:"TS",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
+  ,{find:"TT",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
+  ,{find:"UNI",year:{"SLP2004":3276,"SLP2005":4881,"SLP2008":0}}
+  ,{find:"WAS",year:{"SLP2004":26,"SLP2005":0,"SLP2008":0}}
+  ,{find:"FLI",year:{"SLP2004":0,"SLP2005":31,"SLP2008":0}}
+  ,{find:"IS",year:{"SLP2004":0,"SLP2005":1,"SLP2008":0}}
+  ,{find:"LAR",year:{"SLP2004":0,"SLP2005":1,"SLP2008":0}}
+  ,{find:"PW2",year:{"SLP2004":0,"SLP2005":2,"SLP2008":0}}
+  ,{find:"RP",year:{"SLP2004":0,"SLP2005":1,"SLP2008":0}}
+  ,{find:"STO",year:{"SLP2004":0,"SLP2005":4,"SLP2008":0}}
+  ,{find:"UN",year:{"SLP2004":0,"SLP2005":293,"SLP2008":180}}
+  ,{find:"VAR",year:{"SLP2004":0,"SLP2005":1,"SLP2008":0}}
+  ,{find:"BT",year:{"SLP2004":0,"SLP2005":0,"SLP2008":19}}
+];
 
-  console.log("json_type", type)
-  console.log(freqData)
-
-  dashboard('#dashboard', type);
-});
+dashboard('#dashboard', obj);
 
 function dashboard(id, fData){
     // console.log("type in dashboard", fData)
     var barColor = 'steelblue';
-    function segColor(c){ return {2004:"#807dba",2005:"#e08214",2008:"#41ab5d"}[c]; }
+    function segColor(c){ return {SLP2004:"#807dba",SLP2005:"#e08214",SLP2008:"#41ab5d"}[c]; }
 
-    // function segColor(c){ return {
-    //   CER:"#d53e4f",
-    //   GLA:"#fc8d59",
-    //   MET:"#fee08b",
-    //   SHE:"#e6f598",
-    //   STO:"#99d594",
-    //   VAR:"#3288bd",
-    // }[c];}
-
-    console.log("bla1", fData.CER)
+    console.log("bla1", fData)
 
     // compute total for each state.
-    fData.CER.forEach(function(d){
-        d.CER.total=d.CER.SLP2004+d.CER.y2005+d.CER.y2008;
-        // d.GLA.totalGLA=d.GLA.y2004.totNum+d.GLA.y2005.totNum+d.GLA.y2008.totNum;
-        // d.MET.totalMET=d.MET.y2004.totNum+d.MET.y2005.totNum+d.MET.y2008.totNum;
-        // d.SHE.totalSHE=d.SHE.y2004.totNum+d.SHE.y2005.totNum+d.SHE.y2008.totNum;
-        // d.STO.totalSTO=d.STO.y2004.totNum+d.STO.y2005.totNum+d.STO.y2008.totNum;
-        // d.VAR.totalVAR=d.VAR.y2004.totNum+d.VAR.y2005.totNum+d.VAR.y2008.totNum;
+    fData.forEach(function(d){
+        d.total=d.year.SLP2004+d.year.SLP2005+d.year.SLP2008;
     });
+
     console.log("bla2", fData)
 
     // function to handle histogram.
@@ -87,8 +125,8 @@ function dashboard(id, fData){
 
         function mouseover(d){  // utility function to be called on mouseover.
             // filter for selected state.
-            var st = fData.filter(function(s){ return s.State == d[0];})[0],
-                nD = d3.keys(st.freq).map(function(s){ return {type:s, freq:st.freq[s]};});
+            var st = fData.filter(function(s){ return s.find == d[0];})[0],
+                nD = d3.keys(st.year).map(function(s){ return {type:s, freq:st.year[s]};});
 
             // call update functions of pie-chart and legend.
             pC.update(nD);
@@ -154,13 +192,13 @@ function dashboard(id, fData){
         function mouseover(d){
             // call the update function of histogram with new data.
             hG.update(fData.map(function(v){
-                return [v.State,v.freq[d.data.type]];}),segColor(d.data.type));
+                return [v.find,v.year[d.data.type]];}),segColor(d.data.type));
         }
         //Utility function to be called on mouseout a pie slice.
         function mouseout(d){
             // call the update function of histogram with all data.
             hG.update(fData.map(function(v){
-                return [v.State,v.total];}), barColor);
+                return [v.find,v.total];}), barColor);
         }
         // Animating the pie-slice requiring a custom function which specifies
         // how the intermediate paths should be drawn.
@@ -218,29 +256,14 @@ function dashboard(id, fData){
     }
 
     // calculate total frequency by segment for all state.
-    var tF = ['low','mid','high'].map(function(d){
-        return {type:d, freq: d3.sum(fData.map(function(t){ return t.freq[d];}))};
+    var tF = ['SLP2004','SLP2005','SLP2008'].map(function(d){
+        return {type:d, freq: d3.sum(fData.map(function(t){ return t.year[d];}))};
     });
 
     // calculate total frequency by state for all segment.
-    var sF = fData.map(function(d){return [d.State,d.total];});
+    var sF = fData.map(function(d){return [d.find,d.total];});
 
     var hG = histoGram(sF), // create the histogram.
         pC = pieChart(tF), // create the pie-chart.
         leg= legend(tF);  // create the legend.
 }
-
-var freqData=[
-            {State:'AL',freq:{low:4786, mid:1319, high:249}}
-            ,{State:'AZ',freq:{low:1101, mid:412, high:674}}
-            ,{State:'CT',freq:{low:932, mid:2149, high:418}}
-            ,{State:'DE',freq:{low:832, mid:1152, high:1862}}
-            ,{State:'FL',freq:{low:4481, mid:3304, high:948}}
-            ,{State:'GA',freq:{low:1619, mid:167, high:1063}}
-            ,{State:'IA',freq:{low:1819, mid:247, high:1203}}
-            ,{State:'IL',freq:{low:4498, mid:3852, high:942}}
-            ,{State:'IN',freq:{low:797, mid:1849, high:1534}}
-            ,{State:'KS',freq:{low:162, mid:379, high:471}}
-            ];
-
-// console.log("freqData", freqData)

@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="description" content="">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>View of an Archaeological survey</title>
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+	    <link rel="stylesheet" href="css/font-awesome.min.css">
+	    <link rel="stylesheet" href="css/style.css">
+	    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+	    <script type="text/javascript" src="js/d3.min.js"></script>
+	    <script type="text/javascript" src="js/d3.tip.js"></script>
+	    <script type="text/javascript" src="js/queue.min.js"></script>
+	    <script type="text/javascript" src="js/datamaps.world.min.js"></script>
+	    <script type="text/javascript" src="https://d3js.org/d3-dsv.v1.min.js"></script>
+	</head>
+	<body>
+    <h1>Sacred Landscape Project, Molise, Italy</h1>
+    <nav align="center" class="navbar navbar-default">
+      <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="intro.html">Intro</a></li>
+            <li><a href="findtypes.html">Map and bar</a></li>
+            <li><a href="findperiod.html">Finds and images</a></li>
+						<li><a href="converter.html">Converter</a></li>
+            <li><a href="tester.html">Tester</a></li>
+        </ul>
+      </div>
+		</nav>
+		<pre id="json"></pre>
+    <script>
+      d3.json('data/meta/SLP_total_magled.json', function(data) {
+
+        var type = d3.nest()
+        .key(function(d) { return d.Ware; })
+        .key(function(d) { return "SLP"+d.Campaign.split("-")[1]; })
+        .rollup(function(e) { return d3.sum(e, function(d) { return +d.Number; })
+          })
+        .map(data);
+
+        document.getElementById("json").innerHTML = JSON.stringify(type, undefined, 3);
+
+        console.log("json_type", type)
+    	});
+    </script>
+	</body>
+</html>
