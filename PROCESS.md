@@ -83,3 +83,9 @@
 
 ### Work
 - made switch working for dashboard
+- todo
+	- sort histogram
+	- reposition piechart
+	- add tooltip
+	- change datamap for google API
+	- make vis#3
