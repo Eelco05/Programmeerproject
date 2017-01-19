@@ -103,7 +103,7 @@ function dashboard(id, fData){
     // function to handle histogram.
     function histoGram(fD){
         var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
-        hGDim.w = 800 - hGDim.l - hGDim.r,
+        hGDim.w = 650 - hGDim.l - hGDim.r,
         hGDim.h = 450 - hGDim.t - hGDim.b;
 
         //create svg for histogram.
@@ -189,7 +189,7 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:250, h: 250};
+        var pC ={},    pieDim ={w:350, h: 350};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
         // create svg for pie chart.

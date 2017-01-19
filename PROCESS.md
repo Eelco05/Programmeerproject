@@ -87,5 +87,6 @@
 	- sort histogram
 	- reposition piechart
 	- add tooltip
+	- seperate dashboard elements into seperate js files and create a main.js
 	- change datamap for google API
-	- make vis#3
+	- make vis#3 based on example done or <a href="https://bl.ocks.org/mbostock/c957dc9c1f8a0bae58d5">waterfall example</a>
