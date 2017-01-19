@@ -67,7 +67,7 @@
 
 ### Standup
 - chose not to work on style guide
-- 
+
 
 ### Work
 - made dashboard functioning
@@ -78,8 +78,8 @@
 - Did some general remarks on styleguide
 - Will base styleguide on online examples
 - <a href="http://www.w3schools.com/js/js_conventions.asp">JavaScript Style Guide</a>
-- <a href="http://www.w3schools.com/html/html5_syntax.asp">JavaScript Style Guide</a>
-- <a href="http://primercss.io/guidelines/">JavaScript Style Guide</a>
+- <a href="http://www.w3schools.com/html/html5_syntax.asp">HTML5 Style Guide/a>
+- <a href="http://primercss.io/guidelines/">Styleguide voor html/css</a>
 
 ### Work
 - made switch working for dashboard
