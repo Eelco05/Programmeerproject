@@ -54,7 +54,7 @@
 	- **Wednesday**: Finish functionality dashboard, start Vis#3
 	- **Thursday**: Finish functionaly Vis#3
 
-## Day 7 16-01-'17
+## Day 7 17-01-'17
 
 ### Standup
 - Couldn't get to the Uni today, electrical failure shut down all trains to Amsterdam
@@ -62,4 +62,24 @@
 ### Work
 - Not my most productive day
 - Did some redesign of my page, now seperate html's
+
+## Day 8 18-01-'17
+
+### Standup
+- chose not to work on style guide
 - 
+
+### Work
+- made dashboard functioning
+
+## Day 9 19-01-'17
+
+### Standup
+- Did some general remarks on styleguide
+- Will base styleguide on online examples
+- <a href="http://www.w3schools.com/js/js_conventions.asp">JavaScript Style Guide</a>
+- <a href="http://www.w3schools.com/html/html5_syntax.asp">JavaScript Style Guide</a>
+- <a href="http://primercss.io/guidelines/">JavaScript Style Guide</a>
+
+### Work
+- made switch working for dashboard

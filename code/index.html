@@ -18,7 +18,7 @@
 </head>
 <body>
     <h1>Sacred Landscape Project, Molise, Italy</h1>
-    <nav align="center" class="navbar navbar-default">
+    <nav class="navbar navbar-default">
         <div class="container">
             <ul class="nav navbar-nav">
                 <li><a href="index.html">Home</a></li>
@@ -51,20 +51,15 @@
         </div>
     </div>
     <div id='wrapper'>
-        <div id='dashboard'>
-            <div class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Campaign Year</button>
-                    <div id="Drop" class="dropdown-content">
-                        <strong>
-                            <a>2004</a>
-                            <a>2005</a>
-                            <a>2008</a>
-                        </strong>
-                    </div>
-            </div>
+        <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onchange="change()" checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
         </div>
-        <!-- <script type="text/javascript" src="js/importData.js" ></script> -->
-        <script type="text/javascript" src="js/dashboard_org_copy.js"></script>
+        <div id='dashboard'></div>
+        <script type="text/javascript" src="js/dashboard.js"></script>
     </div>
     <div id='wrapper'>
         <div id='bar'>

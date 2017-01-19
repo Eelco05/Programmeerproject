@@ -22,10 +22,15 @@ img {
     height: 100%;
 }
 
+.nav navbar-nav {
+    position: static;
+}
+
 #wrapper {
     display: flex;
     justify-content: left;
-    width: 99%;
+    height: 99%
+    /*width: 99%;*/
     margin-left: 5px;
     margin-right: 5px;
     border:2px solid red;
@@ -89,12 +94,6 @@ rect:hover {  fill:blue; }
 }
 
 
-
-
-
-
-
-
 /* Dropdown Button */
 
 .dropbtn {
@@ -139,7 +138,7 @@ rect:hover {  fill:blue; }
 
 /* The switch - the box around the slider */
 .onoffswitch {
-    position: relative;
+    position: absolute;
     width: 108px;
     -webkit-user-select:none;
     -moz-user-select:none;
@@ -179,7 +178,7 @@ rect:hover {  fill:blue; }
     color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "Other";
+    content: "Others";
     padding-right: 13px;
     background-color: #EEEEEE;
     color: #7871BD;
@@ -187,6 +186,7 @@ rect:hover {  fill:blue; }
 }
 .onoffswitch-switch {
     display: block;
+    height: 60%;
     width: 18px;
     margin: 6px;
     background: #FFFFFF;

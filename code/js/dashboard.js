@@ -20,7 +20,7 @@ var ware = [
   ,{find:"CW",year:{"SLP2004":2301,"SLP2005":6,"SLP2008":116}}
   ,{find:"CW1",year:{"SLP2004":237,"SLP2005":1724,"SLP2008":0}}
   ,{find:"CW2",year:{"SLP2004":124,"SLP2005":621,"SLP2008":0}}
-  ,{find:"DO",year:{"SLP2004":22,"SLP2008":1}}
+  ,{find:"DO",year:{"SLP2004":22,"SLP2005":0,"SLP2008":1}}
   ,{find:"DO1",year:{"SLP2004":53,"SLP2005":54,"SLP2008":0}}
   ,{find:"DO2",year:{"SLP2004":39,"SLP2005":24,"SLP2008":0}}
   ,{find:"FW",year:{"SLP2004":2,"SLP2005":0,"SLP2008":0}}
@@ -62,7 +62,28 @@ var ware = [
   ,{find:"BT",year:{"SLP2004":0,"SLP2005":0,"SLP2008":19}}
 ];
 
-dashboard('#dashboard', obj);
+var dash = d3.select('#dashboard')
+
+var check = 0;
+
+function change() {
+  if (check == 0) {
+    artefact = obj;
+    dash.selectAll("*").remove();
+    console.log("check 0", artefact);
+    dashboard('#dashboard', obj);
+    check = 1; 
+  }
+  else {
+    artefact = ware;
+    dash.selectAll("*").remove(); 
+    dashboard('#dashboard', artefact);
+    console.log("check 1", artefact);
+    check = 0;
+  }
+}
+
+dashboard('#dashboard', ware);
 
 function dashboard(id, fData){
     // console.log("type in dashboard", fData)
@@ -122,6 +143,10 @@ function dashboard(id, fData){
             .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
             .attr("y", function(d) { return y(d[1])-5; })
             .attr("text-anchor", "middle");
+
+        bars.select("#dashboard")
+          .select("rect")
+          .data(fD.sort(function(a, b){return b-a}))
 
         function mouseover(d){  // utility function to be called on mouseover.
             // filter for selected state.
