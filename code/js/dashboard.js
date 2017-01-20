@@ -102,9 +102,9 @@ function dashboard(id, fData){
 
     // function to handle histogram.
     function histoGram(fD){
-        var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
+        var hG={},    hGDim = {t: 70, r: 0, b: 30, l: 0};
         hGDim.w = 650 - hGDim.l - hGDim.r,
-        hGDim.h = 450 - hGDim.t - hGDim.b;
+        hGDim.h = 400 - hGDim.t - hGDim.b;
 
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")

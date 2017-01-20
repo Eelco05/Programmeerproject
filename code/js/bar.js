@@ -1,6 +1,6 @@
-var margin = {top: 50, right: 20, bottom: 10, left: 80},
-    width = 650 - margin.left - margin.right,
-    height = 580 - margin.top - margin.bottom;
+var margin = {top: 60, right: 20, bottom: 10, left: 80},
+    width = 1000 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 var y = d3.scale.ordinal()
     .rangeRoundBands([0, height], .3);

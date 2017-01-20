@@ -68,7 +68,6 @@
 ### Standup
 - chose not to work on style guide
 
-
 ### Work
 - made dashboard functioning
 
@@ -90,3 +89,14 @@
 	- seperate dashboard elements into seperate js files and create a main.js
 	- change datamap for google API
 	- make vis#3 based on example done or <a href="https://bl.ocks.org/mbostock/c957dc9c1f8a0bae58d5">waterfall example</a>
+
+## Day 10 20-01-'17
+
+### Work
+- did some css work to make visualisations presentable
+
+### Presentation
+- Vis#1 en #2 working, but need to be fine-tuned
+- Still not sure about Vis#3
+- Feedback:
+	- 
