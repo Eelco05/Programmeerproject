@@ -9,16 +9,22 @@ html, body {
 }
 
 body {
+
     margin:0 auto;
 }
 
 h1, h2, h3 {
     text-align: center;
+    color: red;
 }
 
 img {
     width: 100%;
     height: 100%;
+}
+
+pre {
+    margin-top: 70px;
 }
 
 .fixed-nav-bar {
@@ -36,25 +42,26 @@ img {
     padding: 0;
     overflow: hidden;
     display: inline-block;
-    text-align: center;
+    text-align: left;
 }
 
 .nav li {
     display: inline-block;
-    text-align: center;
+    text-align: left;
 }
 
 .nav li a {
     display: block;
     color: #424242;
     text-align: center;
-    padding: 15px 43px;
+    padding: 15px 61.36px;
     text-decoration: none;
     font-size: 20px;
 }
 
 
 #wrapper {
+    background: lightgray;
     display: flex;
     justify-content: left;
     height: 80%;
@@ -65,6 +72,7 @@ img {
 }
 
 #datamap, #bar, #image, #intro {
+    background: transparent;
     height: 500px;
     margin: 5px;
     width: 50%;

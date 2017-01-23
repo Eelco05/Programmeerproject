@@ -99,4 +99,15 @@
 - Vis#1 en #2 working, but need to be fine-tuned
 - Still not sure about Vis#3
 - Feedback:
-	- 
+	- nog meer nadenken over vis#3
+
+## Day 11 23-01-'17
+
+### Standup
+
+### Work
+
+### Schedule coming week
+- have a third visualisation up and running by tuesday
+- refine the first and second visualisation by wednesday
+- restructure code onto modules and according to the styleguide by the end of thursday, with the help of bettercodehub
