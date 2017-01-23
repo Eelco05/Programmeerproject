@@ -1,5 +1,9 @@
 # README
 
+<img src='https://bettercodehub.com/edge/badge/Eelco05/Programmeerproject'>
+
+![Field survey](/doc/screen_bettercodehub_23_01.png)
+
 ## Nieuwe manier om Archeologische Fieldsurvey's te visualiseren
 
 ### by Eelco Alink
