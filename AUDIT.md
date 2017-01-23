@@ -1,3 +1,8 @@
+<img src='https://bettercodehub.com/edge/badge/Eelco05/Programmeerproject'>
+
+![Field survey](/doc/screen_bettercodehub_23_01.png)
+Bettercodehub run 23-01-17 09:00
+
 # Write Short Units of Code
 - bar.js:DefaultUnit
 - dashboard.js:DefaultUnit
@@ -21,6 +26,3 @@
 - dashboard_org_copy.js
 - data.js
 
-<img src='https://bettercodehub.com/edge/badge/Eelco05/Programmeerproject'>
-
-[![BCH compliance](https://bettercodehub.com/edge/badge/Eelco05/Programmeerproject)](https://bettercodehub.com)
