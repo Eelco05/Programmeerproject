@@ -30,19 +30,30 @@
     </nav>
 	<pre id="json"></pre>
     <script>
-      d3.json('data/meta/SLP_total_magled.json', function(data) {
+        d3.csv('data/meta/SLP_total_magled_by_period.csv', function(data) {
 
-        var type = d3.nest()
-        .key(function(d) { return d.Ware; })
-        .key(function(d) { return "SLP"+d.Campaign.split("-")[1]; })
-        .rollup(function(e) { return d3.sum(e, function(d) { return +d.Number; })
-          })
-        .map(data);
+            var type = d3.nest()
+            
+            .key(function(d) { return d.Period; })
+            .key(function(d) { return "low : "+d.low }).sortKeys(d3.ascending)
+            .key(function(d) { return "High : "+d.high}).sortKeys(d3.ascending)
+            // .key(function(d) { return "SLP"+d.Campaign.split("-")[1]; })
+            .rollup(function(e) { return { 
+                "Number": d3.sum(e, function(d) { return +d.Number; }),
+              }
+            })
+            .entries(data);
 
-        document.getElementById("json").innerHTML = JSON.stringify(type, undefined, 3);
+            document.getElementById("json").innerHTML = JSON.stringify(type, undefined, 3);
 
-        console.log("json_type", type)
-    	});
+            console.log("json_type", type)
+        });
+        d3.json('data/finds_period.json', function(data) {
+
+            json = data;
+
+            console.log(json)
+        })
     </script>
 	</body>
 </html>

@@ -104,8 +104,11 @@
 ## Day 11 23-01-'17
 
 ### Standup
+- see schedule
 
 ### Work
+- did first run of bettercodehub and made AUDIT.md
+- did some restructuring of the data to more accuratelly reflect time, to better be able 
 
 ### Schedule coming week
 - have a third visualisation up and running by tuesday
