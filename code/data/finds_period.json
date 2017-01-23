@@ -90,12 +90,6 @@
       "Number": 1
    },
    {
-      "Period": "NR",
-      "low" : "0",
-      "High" : "0",
-      "Number": 4826
-   },
-   {
       "Period": "PAL-NEO",
       "low" : "-10000",
       "High" : "-3000",
@@ -292,11 +286,5 @@
       "low" : "1500",
       "High" : "1800",
       "Number": 1634
-   },
-   {
-      "Period": "UNI",
-      "low" : "0",
-      "High" : "0",
-      "Number": 4909
    }
 ]

@@ -33,10 +33,9 @@
         d3.csv('data/meta/SLP_total_magled_by_period.csv', function(data) {
 
             var type = d3.nest()
-            
-            .key(function(d) { return d.Period; })
             .key(function(d) { return "low : "+d.low }).sortKeys(d3.ascending)
-            .key(function(d) { return "High : "+d.high}).sortKeys(d3.ascending)
+            .key(function(d) { return d.Period; })
+            .key(function(d) { return "High : "+d.high})
             // .key(function(d) { return "SLP"+d.Campaign.split("-")[1]; })
             .rollup(function(e) { return { 
                 "Number": d3.sum(e, function(d) { return +d.Number; }),
