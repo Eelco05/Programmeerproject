@@ -1,5 +1,5 @@
-var svg = d3.select("#d4"),
-    margin = {top: 40, right: 50, bottom: 30, left: 80},
+var svg = d3.select("#d5"),
+    margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -15,43 +15,34 @@ var y = d3.scaleLinear()
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-d3.json("data/finds_period.json", function(error, data) {
+d3.csv("data/data.csv", function(d, i, columns) {
+  for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
+  d.total = t;
+  return d;
+}, function(error, data) {
   if (error) throw error;
-  
-  var keys = [];
-  var i = 0;
 
-  data.forEach(function(d, i) { keys[i] = d.Period; i++; })
+  var keys = data.columns.slice(1);
 
-  var number = [];
-  i = 0;
-  data.forEach(function(d, i) { number[i] = d.Number; i++; })
-  console.log(number)
-
-  data.sort(function(a, b) { return a.low - b.low; });
-
-  x.domain(data.map(function(d) { return d.Period; }));
-  y.domain([-10000, d3.max(data, function(d) { return d.high; })]).nice();
+  data.sort(function(a, b) { return b.total - a.total; });
+  x.domain(data.map(function(d) { return d.State; }));
+  y.domain([0, d3.max(data, function(d) { return d.total; })]).nice();
   z.domain(keys);
+
+  console.log("keys_org", keys)
 
   g.append("g")
     .selectAll("g")
     .data(d3.stack().keys(keys)(data))
     .enter().append("g")
+      .attr("fill", function(d) { return z(d.key); })
     .selectAll("rect")
     .data(function(d) { return d; })
     .enter().append("rect")
-      .attr("class", function(d) { return d.data.Period; })
-      .attr("x", function(d) { return x(d.data.Period); })
-      .attr("y", function(d) { return y(d.data.high); })
-      .attr("height", function(d) { return y(d.data.low) - y(d.data.high); })
-      .attr("width", x.bandwidth())
-      .attr("fill", "steelblue");
-
-  g.selectAll(".d.data.Period")
-    .attr("fill", "black");
-  
-    
+      .attr("x", function(d) { return x(d.data.State); })
+      .attr("y", function(d) { console.log("y(d[1])", d[1],"y(d[1])", d[0]); return y(d[1]); })
+      .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+      .attr("width", x.bandwidth());
 
   g.append("g")
       .attr("class", "axis")
@@ -68,7 +59,7 @@ d3.json("data/finds_period.json", function(error, data) {
       .attr("fill", "#000")
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
-      .text("Year");
+      .text("Population");
 
   var legend = g.append("g")
       .attr("font-family", "sans-serif")

@@ -79,8 +79,8 @@ var data2 = [
    {  Period: "SR", low : "1500", high : "1800", total: 1634 }
 ]
 
-console.log(data)
-console.log(data2)
+// console.log(data)
+// console.log(data2)
 
 var parse = d3.time.format("%Y").parse;
 

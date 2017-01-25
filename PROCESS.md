@@ -125,6 +125,7 @@
 - Still working on vis#3, now looking at a Gantt chart
 - tried gantt, timeline, even html gantt, nothing seems to work
 - going back to original divergent bar chart to see if i can make it work
+- started work on new way for visualizing, a horizontal stacked barchart. By making the bottom stack invisable, it only leaves the periods i want to show
 
 ## Day 13 25-01-'17
 
@@ -133,3 +134,4 @@
 
 ### Work
 - forgot to push code yesterday, did it this morning
+- got on with vis#3
