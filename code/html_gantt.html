@@ -1,0 +1,114 @@
+<html>
+<head>
+  <script type='text/javascript' src='js/loader.js'></script>
+  <script type='text/javascript' src='js/d3.min.js'></script>
+  <script type='text/javascript' scr='js/html_gantt.js'>
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Period');
+      data.addColumn('string', 'Periods');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Total');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      // data.addRows([
+      //   ['2014Spring', 'Spring 2014', 'spring',
+      //    new Date(2014, 2, 22), new Date(2014, 5, 20), null, 100, null],
+      //   ['2014Summer', 'Summer 2014', 'summer',
+      //    new Date(2014, 5, 21), new Date(2014, 8, 20), null, 100, null],
+      //   ['2014Autumn', 'Autumn 2014', 'autumn',
+      //    new Date(2014, 8, 21), new Date(2014, 11, 20), null, 100, null],
+      //   ['2014Winter', 'Winter 2014', 'winter',
+      //    new Date(2014, 11, 21), new Date(2015, 2, 21), null, 100, null],
+      //   ['2015Spring', 'Spring 2015', 'spring',
+      //    new Date(2015, 2, 22), new Date(2015, 5, 20), null, 50, null],
+      //   ['2015Summer', 'Summer 2015', 'summer',
+      //    new Date(2015, 5, 21), new Date(2015, 8, 20), null, 0, null],
+      //   ['2015Autumn', 'Autumn 2015', 'autumn',
+      //    new Date(2015, 8, 21), new Date(2015, 11, 20), null, 0, null],
+      //   ['2015Winter', 'Winter 2015', 'winter',
+      //    new Date(2015, 11, 21), new Date(2016, 2, 21), null, 0, null],
+      //   ['Football', 'Football Season', 'sports',
+      //    new Date(2014, 8, 4), new Date(2015, 1, 1), null, 100, null],
+      //   ['Baseball', 'Baseball Season', 'sports',
+      //    new Date(2015, 2, 31), new Date(2015, 9, 20), null, 14, null],
+      //   ['Basketball', 'Basketball Season', 'sports',
+      //    new Date(2014, 9, 28), new Date(2015, 5, 20), null, 86, null],
+      //   ['Hockey', 'Hockey Season', 'sports',
+      //    new Date(2014, 9, 8), new Date(2015, 5, 21), null, 89, null]
+      // ]);
+
+      data.addRows([
+        [ 'H', 'H', 'H', new Date(50, 1, 1), new Date(80, 1, 1), null, 1087, null ],
+        [ 'H-M', 'H-M', 'H-M', new Date(80, 1, 1), new Date(1500, 1, 1), null, 311, null ],
+        [ 'H-R', 'H-R', 'H-R', new Date(50, 1, 1), new Date(500, 1, 1), null, 7443, null ],
+        [ 'H-R1', 'H-R1', 'H-R1', new Date(50, 1, 1), new Date(90, 1, 1), null, 1, null ]
+        // [ 'H-SR', 'H-SR', new Date(-350, 1, 1), new Date(1800, 1, 1), null, 54 ],
+        // [ 'H1', 'H1', new Date(-350, 1, 1), new Date(-200, 1, 1), null, 2 ],
+        // [ 'H2', 'H2', new Date(-200, 1, 1), new Date(-50, 1, 1), null, 6 ],
+        // [ 'H2-R', 'H2-R', new Date(-200, 1, 1), new Date(500, 1, 1), null, 41 ],
+        // [ 'H2-R2', 'H2-R2', new Date(-200, 1, 1), new Date(300, 1, 1), null, 2 ],
+        // [ 'H2-R1', 'H2-R1', new Date(-200, 1, 1), new Date(80, 1, 1), null, 2 ],
+        // [ 'M', 'M', new Date(500, 1, 1), new Date(1500, 1, 1), 36 ], null,
+        // [ 'M-SR', 'M-SR', new Date(500, 1, 1), new Date(1800, 1, 1), null, 465 ],
+        // [ 'NEO', 'NEO', new Date(-7000, 1, 1), new Date(-3000, 1, 1), null, 1 ],
+        // [ 'NEO-H', 'NEO-H', new Date(-7000, 1, 1), new Date(-50, 1, 1), null, 1 ],
+        // [ 'NEO-PP2', 'NEO-PP2', new Date(-7000, 1, 1), new Date(-800, 1, 1), null, 1 ],
+        // [ 'PAL-NEO', 'PAL-NEO', new Date(-10000, 1, 1), new Date(-3000, 1, 1), null, 3 ],
+        // [ 'PAL-PP','PAL-PP', new Date(-10000, 1, 1), new Date(-350, 1, 1), null, 4 ],
+        // [ 'PP', 'PP', new Date(-3000, 1, 1), new Date(-350, 1, 1), null, 12 ],
+        // [ 'PP1',  'PP1', new Date(-3000, 1, 1), new Date(-1300, 1, 1), null, 57 ],
+        // [ 'PP1-H', 'PP1-H', new Date(-3000, 1, 1), new Date(-50, 1, 1), null, 121 ],
+        // [ 'PP1-PP2', 'PP1-PP2', new Date(-3000, 1, 1), new Date(-800, 1, 1), null, 30 ],
+        // [ 'PP1-R', 'PP1-R', new Date(-3000, 1, 1), new Date(500, 1, 1), null, 42 ],
+        // [ 'PP2', 'PP2', new Date(-1300, 1, 1), new Date(-800, 1, 1), null, 43 ],
+        // [ 'PP2-H', 'PP2-H', new Date(-1300, 1, 1), new Date(-50, 1, 1), null, 372 ],
+        // [ 'PP2-PP3', 'PP2-PP3', new Date(-1300, 1, 1), new Date(-480, 1, 1), null, 116 ],
+        // [ 'PP2-R', 'PP2-R', new Date(-1300, 1, 1), new Date(500, 1, 1), null, 69 ],
+        // [ 'PP2-R1', 'PP2-R1', new Date(-1300, 1, 1), new Date(80, 1, 1), null, 1 ],
+        // [ 'PP3-H', 'PP3-H', new Date(-800, 1, 1), new Date(-50, 1, 1), null, 118 ],
+        // [ 'PP3-H1', 'PP3-H1', new Date(-800, 1, 1), new Date(-200, 1, 1), null, 5 ],
+        // [ 'PP3-M', 'PP3-M', new Date(-800, 1, 1), new Date(1500, 1, 1), null, 4 ],
+        // [ 'PP3-PP4', 'PP3-PP4', new Date(-800, 1, 1), new Date(-350, 1, 1), null, 26 ],
+        // [ 'PP3-R', 'PP3-R', new Date(-800, 1, 1), new Date(500, 1, 1), null, 152 ],
+        // [ 'PP3-R1', 'PP3-R1', new Date(-800, 1, 1), new Date(80, 1, 1), null, 35 ],
+        // [ 'PP4', 'PP4', new Date(-480, 1, 1), new Date(-350, 1, 1), null, 3 ],
+        // [ 'PP4-H', 'PP4-H', new Date(-480, 1, 1), new Date(-50, 1, 1), null, 28 ],
+        // [ 'PP4-M', 'PP4-M', new Date(-480, 1, 1), new Date(1500, 1, 1), null, 2 ],
+        // [ 'PP4-R', 'PP4-R', new Date(-480, 1, 1), new Date(500, 1, 1), null, 14 ],
+        // [ 'R', 'R', new Date(-50, 1, 1), new Date(500, 1, 1), null, 1012],
+        // [ 'R-M', 'R-M', new Date(-50, 1, 1), new Date(1500, 1, 1), null, 258 ],
+        // [ 'R-SR', 'R-SR', new Date(-50, 1, 1), new Date(1800, 1, 1), null, 110 ],
+        // [ 'R3', 'R3', new Date(300, 1, 1), new Date(500, 1, 1), null, 109 ],
+        // [ 'R1', 'R1', new Date(-50, 1, 1), new Date(80, 1, 1), null, 8 ],
+        // [ 'R2', 'R2', new Date(80, 1, 1), new Date(300, 1, 1), null, 11 ],
+        // [ 'R2-R3', 'R2-R3', new Date(80, 1, 1), new Date(500, 1, 1), null, 22 ],
+        // [ 'R2-SR', 'R2-SR', new Date(80, 1, 1), new Date(1800, 1, 1), null, 27 ],
+        // [ 'R3-M', 'R3-M', new Date(300, 1, 1), new Date(1500, 1, 1), null, 153 ],
+        // [ 'R3-SR', 'R3-SR', new Date(300, 1, 1), new Date(1800, 1, 1), null, 130 ]
+        ]);
+
+      var options = {
+        height: 400,
+        gantt: {
+          trackHeight: 30
+        }
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id='chart_div'></div>
+</body>
+</html>

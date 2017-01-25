@@ -3,77 +3,43 @@
 <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <title>View of an Archaeological survey</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <link rel="stylesheet" href="css/bar2.css">
+    <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script> -->
     <script type="text/javascript" src="js/d3.min.js"></script>
-    <script type="text/javascript" src="js/d3.tip.js"></script>
-    <script type="text/javascript" src="js/queue.min.js"></script>
+    <!-- <script type="text/javascript" src="js/d3.tip.js"></script> -->
+    <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+    <!-- <script type="text/javascript" src="js/queue.min.js"></script>
     <script type="text/javascript" src="js/datamaps.world.min.js"></script>
-    <script type="text/javascript" src="https://d3js.org/d3-dsv.v1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js" charset="utf-8" type="text/javascript"></script>
-    <script src="js/d3.layout.timeline.js" charset="utf-8" type="text/javascript"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-dsv.v1.min.js"></script> -->
 </head>
 <body>
-    <h1>Sacred Landscape Project, Molise, Italy</h1>
-    <nav class="fixed-nav-bar">
-        <div class="nav">
-            <ul class="nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="intro.html">Intro</a></li>
-                <li><a href="findtypes.html">Find types</a></li>
-                <li><a href="findperiod.html">Finds per period</a></li>
-                <li><a href="converter.html">Converter</a></li>
-                <li><a href="tester.html">Tester</a></li>
-                <li><a href="http://surveyarchaeology.eu/tiki-index.php?page=Sacred%20Landscape%20Project">SLP</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div id='wrapper'>
-        <script src="js/timeline.js"></script>
-        <div id="viz">
-          <svg style="background:white;" height=1100 width=1100></svg>
-        </div>
+  <h1>Sacred Landscape Project, Molise, Italy</h1>
+  <nav class="fixed-nav-bar">
+    <div class="nav">
+        <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="intro.html">Intro</a></li>
+            <li><a href="findtypes.html">Find types</a></li>
+            <li><a href="findperiod.html">Finds per period</a></li>
+            <li><a href="converter.html">Converter</a></li>
+            <li><a href="tester.html">Tester</a></li>
+            <li><a href="http://surveyarchaeology.eu/tiki-index.php?page=Sacred%20Landscape%20Project">SLP</a></li>
+        </ul>
     </div>
-    <script>
-    d3.csv("data/meta/SLP_total_magled_by_period_red.csv", function(data) {
-        // console.log(data);
-        var period = d3.nest()
-            .key(function(d) { return d.Period; })
-            .key(function(d) { return d.start; })
-            .key(function(d) { return d.end; })
-            .rollup(function(e) { return { 
-                "Number": d3.sum(e, function(d) { return +d.Number; })
-                }
-            })
-            .entries(data);
-            console.log("period", period);
-        })
-
-
-        var timeline = d3.layout.timeline()
-          .size([1000,300]);
-        colorScale = d3.scale.ordinal()
-          .domain(["European","Native","Colonial","Latin America","Internal"])
-          .range(["#96abb1", "#313746", "#b0909d", "#687a97", "#292014"]);
-        d3.csv("wars.csv", function (csv) {
-            // console.log(csv)
-          timelineBands = timeline(csv);
-          d3.select("svg").selectAll("rect")
-          .data(timelineBands)
-          .enter()
-          .append("rect")
-          .attr("x", function (d) {return d.start})
-          .attr("y", function (d) {return d.y})
-          .attr("height", 30)
-          .attr("width", function (d) {return d.end - d.start})
-          .style("fill", function (d) {return colorScale(d.sphere)})
-          .style("stroke", "black")
-          .style("stroke-width", 1)
-        })
-    </script>
+  </nav>
+  <div id="wrapper">
+    <svg id="d3"></svg>
+    <script src="js/bar3.js"></script>
+  </div>
+  <div >
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <svg id="d4" width="960" height="500"></svg>
+    <script type="text/javascript" src="js/bar2.js" ></script>
+  </div>
 </body>
 </html>

@@ -114,3 +114,22 @@
 - have a third visualisation up and running by tuesday
 - refine the first and second visualisation by wednesday
 - restructure code onto modules and according to the styleguide by the end of thursday, with the help of bettercodehub
+
+## Day 12 24-01-'17
+
+### Standup
+- Gantt chart looks good for my purposes
+- group doesn't know how to proceed
+
+### Work
+- Still working on vis#3, now looking at a Gantt chart
+- tried gantt, timeline, even html gantt, nothing seems to work
+- going back to original divergent bar chart to see if i can make it work
+
+## Day 13 25-01-'17
+
+### Standup
+- 
+
+### Work
+- forgot to push code yesterday, did it this morning

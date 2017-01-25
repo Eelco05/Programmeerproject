@@ -22,13 +22,14 @@ var yAxis = d3.svg.axis()
 var svg = d3.select("#figure").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .attr("id", "d3-plot")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   color.domain(["Pottery", "Metal", "Stone", "Organic", "Undefined"]);
 
   d3.csv("data/raw_data.csv", function(error, data) {
+
+  console.log("pre-calc", data)
 
   data.forEach(function(d) {
     // calc percentages
@@ -39,8 +40,17 @@ var svg = d3.select("#figure").append("svg")
     d["Undefined"] = +d[5]*100/d.N;
     var x0 = -1*(d["Stone"]/2+d["Metal"]+d["Pottery"]);
     var idx = 0;
-    d.boxes = color.domain().map(function(name) { return {name: name, x0: x0, x1: x0 += +d[name], N: +d.N, n: +d[idx += 1]}; });
+    d.boxes = color.domain().map(function(name) { return {
+      name: name, 
+      x0: x0, 
+      x1: x0 += +d[name], 
+      N: +d.N, 
+      n: +d[idx += 1]}; 
+    });
+
   });
+
+  console.log("post-calc",data)
 
   var min_val = d3.min(data, function(d) {
           return d.boxes["0"].x0;
