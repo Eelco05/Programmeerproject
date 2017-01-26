@@ -1,3 +1,4 @@
+
 var obj = [
    {find:"STO",year:{SLP2004:31,SLP2005:71,SLP2008:0}}
    ,{find:"GLA",year:{SLP2004:7,SLP2005:2,SLP2008:0}}
@@ -66,11 +67,13 @@ var dash = d3.select('#dashboard')
 
 var check = 0;
 
+console.log(ware)
+
 function change() {
   if (check == 0) {
     artefact = obj;
     dash.selectAll("*").remove();
-    console.log("check 0", artefact);
+    // console.log("check 0", artefact);
     dashboard('#dashboard', obj);
     check = 1; 
   }
@@ -79,26 +82,33 @@ function change() {
     dash.selectAll("*")
     .remove(); 
     dashboard('#dashboard', artefact);
-    console.log("check 1", artefact);
+    // console.log("check 1", artefact);
     check = 0;
   }
 }
 
+var tool_tip_dash = d3.tip()
+          .attr("class", "d3-tip")
+          .style("opacity", 0.5)
+          .offset([-8, 0])
+          .html(function(d) { return "Period: " + d.find + "<br>" + 
+            "Total finds: " + d.total + "<br>" +
+            "Timespan: " + d.low + " to " + d.high + " BC"; 
+        }); 
+
 dashboard('#dashboard', ware);
 
 function dashboard(id, fData){
-    // console.log("type in dashboard", fData)
-    var barColor = 'steelblue';
-    function segColor(c){ return {SLP2004:"#807dba",SLP2005:"#e08214",SLP2008:"#41ab5d"}[c]; }
 
-    console.log("bla1", fData)
+    var barColor = 'steelblue';
+    function segColor(c){ return {SLP2004:"yellow",SLP2005:"orange",SLP2008:"green"}[c]; }
 
     // compute total for each state.
     fData.forEach(function(d){
         d.total=d.year.SLP2004+d.year.SLP2005+d.year.SLP2008;
     });
 
-    console.log("bla2", fData)
+    fData.sort(function(a, b) { return b.total - a.total; });
 
     // function to handle histogram.
     function histoGram(fD){
@@ -128,7 +138,7 @@ function dashboard(id, fData){
         // Create bars for histogram to contain rectangles and freq labels.
         var bars = hGsvg.selectAll(".bar").data(fD).enter()
                 .append("g").attr("class", "bar");
-
+ 
         //create the rectangles.
         bars.append("rect")
             .attr("x", function(d) { return x(d[0]); })
@@ -137,7 +147,7 @@ function dashboard(id, fData){
             .attr("height", function(d) { return hGDim.h - y(d[1]); })
             .attr('fill',barColor)
             .on("mouseover",mouseover)// mouseover is defined below.
-            .on("mouseout",mouseout);// mouseout is defined below.
+            .on("mouseout",mouseout);// mouseout is defined below. 
 
         //Create the frequency labels above the rectangles.
         bars.append("text").text(function(d){ return d3.format(",")(d[1])})
@@ -145,9 +155,11 @@ function dashboard(id, fData){
             .attr("y", function(d) { return y(d[1])-5; })
             .attr("text-anchor", "middle");
 
-        bars.select("#dashboard")
-          .select("rect")
-          .data(fD.sort(function(a, b){return b-a}))
+        bars.call(tool_tip_dash)
+
+        // bars.select("#dashboard")
+        //   .select("rect")
+        //   .data(fD.sort(function(a, b){return b-a}))
 
         function mouseover(d){  // utility function to be called on mouseover.
             // filter for selected state.
@@ -189,7 +201,7 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:350, h: 350};
+        var pC ={},    pieDim ={w:200, h: 400};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
         // create svg for pie chart.
@@ -207,7 +219,8 @@ function dashboard(id, fData){
         piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)
             .each(function(d) { this._current = d; })
             .style("fill", function(d) { return segColor(d.data.type); })
-            .on("mouseover",mouseover).on("mouseout",mouseout);
+            .on("mouseover",mouseover)
+            .on("mouseout",mouseout);
 
         // create function to update pie-chart. This will be used by histogram.
         pC.update = function(nD){

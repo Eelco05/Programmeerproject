@@ -130,8 +130,23 @@
 ## Day 13 25-01-'17
 
 ### Standup
-- 
+- keep on going
 
 ### Work
 - forgot to push code yesterday, did it this morning
 - got on with vis#3
+- made some progres into vis#3
+
+## Day 14 26-01-'17
+
+### Standup
+- Made some progress with vis#3
+
+### Work
+- made a bar chart with the finds totals per period, but it still needs a lot of workt
+- sorted the values shown in the dashboard as sorted
+
+*TODO*
+	*vis#3*
+	- tilt entire vis#3 90 degrees to make it horizontal
+	- 

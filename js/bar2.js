@@ -16,13 +16,13 @@ var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 var tool_tip = d3.tip()
-    .attr("class", "d3-tip")
-    .style("opacity", 0.5)
-    .offset([-8, 0])
-    .html(function(d) { return "Period: " + d.Period + "<br>" + 
-      "Total finds: " + d.Number + "<br>" +
-      "Timespan: " + d.low + " to " + d.high + " BC"; 
-  });
+  .attr("class", "d3-tip")
+  .style("opacity", 0.5)
+  .offset([-8, 0])
+  .html(function(d) { return "Period: " + d.Period + "<br>" + 
+    "Total finds: " + d.Number + "<br>" +
+    "Timespan: " + d.low + " to " + d.high + " BC"; 
+});
 g.call(tool_tip)
 
 d3.json("data/finds_period.json", function(error, data) {
@@ -57,6 +57,8 @@ d3.json("data/finds_period.json", function(error, data) {
     i++;  
   })
   // console.log(keysRange);
+
+  // console.log(data)
 
   data.sort(function(a, b) { return a.mean - b.mean; });
 
