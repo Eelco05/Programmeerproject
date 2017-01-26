@@ -147,6 +147,6 @@
 - sorted the values shown in the dashboard as sorted
 
 *TODO*
-	*vis#3*
+	**vis#3**
 	- tilt entire vis#3 90 degrees to make it horizontal
 	- 
