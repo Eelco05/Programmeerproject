@@ -288,7 +288,7 @@ function dashboard(id, fData){
         }
 
         function getLegend(d,aD){ // Utility function to compute percentage.
-            return d3.format("%")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));
+            return d3.format("%.")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));
         }
 
         return leg;
@@ -299,8 +299,12 @@ function dashboard(id, fData){
         return {type:d, freq: d3.sum(fData.map(function(t){ return t.year[d];}))};
     });
 
+    console.log("tF", tF)
+
     // calculate total frequency by state for all segment.
     var sF = fData.map(function(d){return [d.find,d.total];});
+
+    console.log("sF",sF)
 
     var hG = histoGram(sF), // create the histogram.
         pC = pieChart(tF), // create the pie-chart.
