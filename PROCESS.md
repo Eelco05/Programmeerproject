@@ -146,7 +146,7 @@
 - made a bar chart with the finds totals per period, but it still needs a lot of workt
 - sorted the values shown in the dashboard as sorted
 
-*TODO*
-	**vis#3**
-	- tilt entire vis#3 90 degrees to make it horizontal
-	- 
+### **TODO**
+***vis#3***
+- tilt entire vis#3 90 degrees to make it horizontal
+- 
