@@ -147,6 +147,13 @@
 - sorted the values shown in the dashboard as sorted
 
 ### **TODO**
-***vis#3***
-- tilt entire vis#3 90 degrees to make it horizontal
-- 
+- **vis3**
+	- tilt 90 degrees
+	- change x axis to time and change years tot periods
+	- dropdown to select seperate periods
+	- make it interact with dashboard, not sure how yet
+- **vis1 and 2**
+	- switch histogram and pie
+	- add tooltip
+	- add text to pie
+	- change legend to show histogram
