@@ -27,6 +27,12 @@ pre {
     margin-top: 70px;
 }
 
+g rect {
+   -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
 .fixed-nav-bar {
   position: relative;
   margin: 0 auto;
@@ -67,26 +73,25 @@ pre {
     width: 95%;
     margin: 0 auto;
     margin-top: 70px;
-    /*border:2px solid red;*/
+    border:2px solid red;
 }
 
-#datamap, #bar, #image, #intro {
+#datamap, #intro {
     background: transparent;
     height: 500px;
     margin: 5px;
     width: 50%;
-    /*border: 1px solid #888;*/
+    border: 1px solid #888;
 }
 
-#bar {
-    text-align: left;
-    vertical-align: top;
+.histogram {
+  align-self: right;
+  border: 1px solid #888;
 }
 
-#image {
-    display: block;
-    width: 50%;
-    height: auto;
+.pie {
+  align-self: left;
+  border: 1px solid #888;
 }
 
 .axis path,
@@ -99,8 +104,8 @@ pre {
 /* dashboard */
 
 path {  stroke: #fff; }
-path:hover {  opacity:0.9; }
-rect:hover {  fill: red; }
+path:hover {  stroke-width: 2; stroke: red; }
+rect:hover {  stroke-width: 2; stroke: red; }
 .axis {  font: 10px sans-serif; }
 .legend tr{    border-bottom:1px solid grey; }
 .legend tr:first-child{    border-top:1px solid grey; }
@@ -251,11 +256,11 @@ stroke: #ddd;
 .d3-tip {
   line-height: 1;
   padding: 6px;
-  background: white;
-  color: steelblue;
+  background: rgba(240, 240, 256, 0.5);
+  color: black;
   border-radius: 1px;
   border-color: 2px solid black;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.5;
 }
 
@@ -263,14 +268,14 @@ stroke: #ddd;
 .d3-tip:after {
   box-sizing: border-box;
   display: inline;
-  font-size: 10px;
+  font-size: 14px;
   width: 100%;
   line-height: 1;
   color: black;
   content: "\25BC";
   position: absolute;
   text-align: center;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 /* Style northward tooltips specifically */

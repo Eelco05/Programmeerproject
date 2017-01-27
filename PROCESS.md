@@ -157,3 +157,11 @@
 	- add tooltip
 	- add text to pie
 	- change legend to show histogram
+
+## Day 15 27-07-'17
+
+### Presentation
+- so, still needs a lot of work
+- need to spend some time with Sasha on monday to figure out the dashboard visualisation
+- use borders to highlight data instead of changing the fill (done!)
+- give the timeline rounded edges to make it less a bar, more an actual timeline

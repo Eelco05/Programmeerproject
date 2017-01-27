@@ -6,12 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script type="text/javascript" src="js/d3.min.js"></script>
-    <script type="text/javascript" src="js/d3.tip.js"></script>
-    <script type="text/javascript" src="js/queue.min.js"></script>
-    <script type="text/javascript" src="js/datamaps.world.min.js"></script>
-    <script type="text/javascript" src="https://d3js.org/d3-dsv.v1.min.js"></script>
 </head>
 <body>
     <h1>Sacred Landscape Project, Molise, Italy</h1>
@@ -51,8 +46,25 @@
 
             json = data;
 
-            console.log(json)
-        })
+            console.log("finds_period", json)
+        });
+
+        d3.csv("data/meta/SLP_total_magled.csv", function(data) {
+            
+            data.sort(function(a,b) { b.Campaign - a.Campaign;})
+
+            var dataByCampaign = d3.nest()
+                .key(function(d) { return d.Campaign; })
+                .key(function(d) { return d.Type})
+                // .rollup(function(e) { return { 
+                //         "total": d3.sum(e, function(d) { return +d.Number; })
+                //     }
+                // })
+                .map(data)
+
+            console.log(dataByCampaign);
+        });
+            
     </script>
 	</body>
 </html>

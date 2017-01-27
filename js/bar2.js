@@ -1,4 +1,4 @@
-var svg = d3.select("#d4"),
+var svg = d3.select("#timeline"),
     margin = {top: 40, right: 50, bottom: 30, left: 80},
     width = +svg.attr("width") - margin.left - margin.right,
     height = +svg.attr("height") - margin.top - margin.bottom,
@@ -12,16 +12,16 @@ var x = d3.scaleBand()
 var y = d3.scaleLinear()
     .rangeRound([height, 0]);
 
-var z = d3.scaleOrdinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+// var z = d3.scaleOrdinal()
+//     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 var tool_tip = d3.tip()
   .attr("class", "d3-tip")
   .style("opacity", 0.5)
   .offset([-8, 0])
-  .html(function(d) { return "Period: " + d.Period + "<br>" + 
-    "Total finds: " + d.Number + "<br>" +
-    "Timespan: " + d.low + " to " + d.high + " BC"; 
+  .html(function(d) { return "Period: " + "<strong>" + d.Period + "</strong>" + "<br>" + 
+    "Total finds: " + "<strong>" + d.Number + "</strong>" + "<br>" +
+    "Timespan: " + "<strong>" + d.low + "</strong>" + " to " + "<strong>" + d.high + "</strong>" + " BC"; 
 });
 g.call(tool_tip)
 
@@ -34,31 +34,15 @@ d3.json("data/finds_period.json", function(error, data) {
 
   var logScale = d3.scaleLog()
   .domain([1, 7443])
-  .range([0,20])
+  .range([1,12])
 
   var keys = [];
   var keysRange = []
-  var i = 0;
+  var calcMean;
 
   data.forEach(function(d, i) { keys[i] = d.Number; i++; })
-
-  var sum;
-  i = 0;
-  data.forEach(function(d, i) { 
-    sum = d.high + d.low
-    d.mean = (sum / 2)
-  })
-
-  // console.log(data)
-
-  i = 0;
-  data.forEach(function(d, i) { 
-    keysRange[i] = logScale(keys[i])
-    i++;  
-  })
-  // console.log(keysRange);
-
-  // console.log(data)
+  data.forEach(function(d, i) { calcMean = d.high + d.low; d.mean = (calcMean / 2) });
+  data.forEach(function(d, i) { keysRange[i] = logScale(keys[i]); i++; })
 
   data.sort(function(a, b) { return a.mean - b.mean; });
 
@@ -67,9 +51,7 @@ d3.json("data/finds_period.json", function(error, data) {
 
   x.domain(data.map(function(d) { return d.Period; }));
   y.domain([low, high]).nice();
-  z.domain(keysRange);
-
-  // console.log(keys)
+  // z.domain(keysRange);
 
   g.append("g")
       .attr("class", "bar")
@@ -80,7 +62,7 @@ d3.json("data/finds_period.json", function(error, data) {
       .attr("x", function(d) { return x(d.Period); })
       .attr("y", function(d) { return y(d.high); })
       .attr("height", function(d) { return y(d.low) - y(d.high); })
-      .attr("width", x.bandwidth())
+      .attr("width", function(d) { return logScale(d.Number); })
       .attr("fill", function(d) { return colorScale(d.Number) })
       .on('mouseover', tool_tip.show)
       .on('mouseout', tool_tip.hide);

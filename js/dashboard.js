@@ -12,10 +12,8 @@ var ware = [
   {find:"ARCH",year:{"SLP2004":12,"SLP2005":0,"SLP2008":0}}
   ,{find:"ARS",year:{"SLP2004":39,"SLP2005":27,"SLP2008":0}}
   ,{find:"AU",year:{"SLP2004":7,"SLP2005":4,"SLP2008":0}}
-  ,{find:"BACINO",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
   ,{find:"BG",year:{"SLP2004":134,"SLP2005":120,"SLP2008":0}}
   ,{find:"CC",year:{"SLP2004":193,"SLP2005":10,"SLP2008":0}}
-  ,{find:"CD",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
   ,{find:"CKW",year:{"SLP2004":8,"SLP2005":0,"SLP2008":0}}
   ,{find:"CP",year:{"SLP2004":34,"SLP2005":5,"SLP2008":0}}
   ,{find:"CW",year:{"SLP2004":2301,"SLP2005":6,"SLP2008":116}}
@@ -24,19 +22,14 @@ var ware = [
   ,{find:"DO",year:{"SLP2004":22,"SLP2005":0,"SLP2008":1}}
   ,{find:"DO1",year:{"SLP2004":53,"SLP2005":54,"SLP2008":0}}
   ,{find:"DO2",year:{"SLP2004":39,"SLP2005":24,"SLP2008":0}}
-  ,{find:"FW",year:{"SLP2004":2,"SLP2005":0,"SLP2008":0}}
   ,{find:"GL",year:{"SLP2004":74,"SLP2005":312,"SLP2008":22}}
-  ,{find:"GML",year:{"SLP2004":4,"SLP2005":0,"SLP2008":0}}
   ,{find:"IMB",year:{"SLP2004":835,"SLP2005":142,"SLP2008":3}}
   ,{find:"IMC",year:{"SLP2004":15,"SLP2005":0,"SLP2008":0}}
   ,{find:"IMP",year:{"SLP2004":815,"SLP2005":371,"SLP2008":0}}
   ,{find:"ITS",year:{"SLP2004":4,"SLP2005":19,"SLP2008":0}}
-  ,{find:"LGP",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
   ,{find:"LW",year:{"SLP2004":7,"SLP2005":3,"SLP2008":0}}
   ,{find:"MS",year:{"SLP2004":5,"SLP2005":0,"SLP2008":0}}
   ,{find:"OC",year:{"SLP2004":15,"SLP2005":0,"SLP2008":0}}
-  ,{find:"PMJ",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
-  ,{find:"PRW",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
   ,{find:"PS",year:{"SLP2004":8,"SLP2005":0,"SLP2008":0}}
   ,{find:"PW",year:{"SLP2004":792,"SLP2005":571,"SLP2008":4}}
   ,{find:"RBT",year:{"SLP2004":29,"SLP2005":143,"SLP2008":27}}
@@ -44,30 +37,27 @@ var ware = [
   ,{find:"STR",year:{"SLP2004":14,"SLP2005":1,"SLP2008":0}}
   ,{find:"STV",year:{"SLP2004":52,"SLP2005":0,"SLP2008":0}}
   ,{find:"SV",year:{"SLP2004":6,"SLP2005":0,"SLP2008":0}}
-  ,{find:"TER",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
-  ,{find:"TERARCH",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
-  ,{find:"TERFIG",year:{"SLP2004":1,"SLP2005":0,"SLP2008":0}}
   ,{find:"TIL",year:{"SLP2004":3569,"SLP2005":1301,"SLP2008":10}}
-  ,{find:"TS",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
-  ,{find:"TT",year:{"SLP2004":3,"SLP2005":0,"SLP2008":0}}
-  ,{find:"UNI",year:{"SLP2004":3276,"SLP2005":4881,"SLP2008":0}}
+  // ,{find:"UNI",year:{"SLP2004":3276,"SLP2005":4881,"SLP2008":0}}
   ,{find:"WAS",year:{"SLP2004":26,"SLP2005":0,"SLP2008":0}}
   ,{find:"FLI",year:{"SLP2004":0,"SLP2005":31,"SLP2008":0}}
-  ,{find:"IS",year:{"SLP2004":0,"SLP2005":1,"SLP2008":0}}
-  ,{find:"LAR",year:{"SLP2004":0,"SLP2005":1,"SLP2008":0}}
-  ,{find:"PW2",year:{"SLP2004":0,"SLP2005":2,"SLP2008":0}}
-  ,{find:"RP",year:{"SLP2004":0,"SLP2005":1,"SLP2008":0}}
-  ,{find:"STO",year:{"SLP2004":0,"SLP2005":4,"SLP2008":0}}
   ,{find:"UN",year:{"SLP2004":0,"SLP2005":293,"SLP2008":180}}
-  ,{find:"VAR",year:{"SLP2004":0,"SLP2005":1,"SLP2008":0}}
   ,{find:"BT",year:{"SLP2004":0,"SLP2005":0,"SLP2008":19}}
 ];
 
 var dash = d3.select('#dashboard')
-
 var check = 0;
 
-console.log(ware)
+
+// function changeYear (d) {
+//   var i = 0;
+//   d.forEach(function (e, i) {
+//     var years = d3.keys(d[i].year);
+//     console.log(years);
+//   })
+// }
+
+// changeYear(ware)
 
 function change() {
   if (check == 0) {
@@ -79,22 +69,12 @@ function change() {
   }
   else {
     artefact = ware;
-    dash.selectAll("*")
-    .remove(); 
+    dash.selectAll("*").remove(); 
     dashboard('#dashboard', artefact);
     // console.log("check 1", artefact);
     check = 0;
   }
 }
-
-var tool_tip_dash = d3.tip()
-          .attr("class", "d3-tip")
-          .style("opacity", 0.5)
-          .offset([-8, 0])
-          .html(function(d) { return "Period: " + d.find + "<br>" + 
-            "Total finds: " + d.total + "<br>" +
-            "Timespan: " + d.low + " to " + d.high + " BC"; 
-        }); 
 
 dashboard('#dashboard', ware);
 
@@ -112,12 +92,13 @@ function dashboard(id, fData){
 
     // function to handle histogram.
     function histoGram(fD){
-        var hG={},    hGDim = {t: 70, r: 0, b: 30, l: 0};
-        hGDim.w = 650 - hGDim.l - hGDim.r,
-        hGDim.h = 400 - hGDim.t - hGDim.b;
+        var hG={},    hGDim = {t: 70, r: 0, b: 30, l: 20};
+        hGDim.w = 900 - hGDim.l - hGDim.r,
+        hGDim.h = 500 - hGDim.t - hGDim.b;
 
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
+            .attr("class", "histogram")
             .attr("width", hGDim.w + hGDim.l + hGDim.r)
             .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
@@ -154,8 +135,6 @@ function dashboard(id, fData){
             .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
             .attr("y", function(d) { return y(d[1])-5; })
             .attr("text-anchor", "middle");
-
-        bars.call(tool_tip_dash)
 
         // bars.select("#dashboard")
         //   .select("rect")
@@ -201,22 +180,30 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:200, h: 400};
+        var pC ={},    pieDim ={w:250, h: 250};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
         // create svg for pie chart.
         var piesvg = d3.select(id).append("svg")
+            .attr("class", "pie")
             .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
             .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
 
         // create function to draw the arcs of the pie slices.
-        var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
+        var arc = d3.svg.arc()
+          .outerRadius(pieDim.r - 10)
+          .innerRadius(0);
 
         // create a function to compute the pie slice angles.
-        var pie = d3.layout.pie().sort(null).value(function(d) { return d.freq; });
+        var pie = d3.layout.pie()
+        .sort(null)
+        .value(function(d) { return d.freq; });
 
         // Draw the pie slices.
-        piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)
+        piesvg.selectAll("path")
+          .data(pie(pD))
+          .enter().append("path")
+            .attr("d", arc)
             .each(function(d) { this._current = d; })
             .style("fill", function(d) { return segColor(d.data.type); })
             .on("mouseover",mouseover)
@@ -224,7 +211,9 @@ function dashboard(id, fData){
 
         // create function to update pie-chart. This will be used by histogram.
         pC.update = function(nD){
-            piesvg.selectAll("path").data(pie(nD)).transition().duration(500)
+            piesvg.selectAll("path")
+            .data(pie(nD))
+                .transition().duration(500)
                 .attrTween("d", arcTween);
         }
         // Utility function to be called on mouseover a pie slice.
@@ -254,41 +243,58 @@ function dashboard(id, fData){
         var leg = {};
 
         // create table for legend.
-        var legend = d3.select(id).append("table").attr('class','legend');
+        var legend = d3.select(id)
+          .append("table")
+            .attr('class','legend');
 
         // create one row per segment.
-        var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
+        var tr = legend.append("tbody")
+          .selectAll("tr")
+          .data(lD)
+          .enter().append("tr");
 
         // create the first column for each segment.
-        tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect")
-            .attr("width", '16').attr("height", '16')
-            .attr("fill",function(d){ return segColor(d.type); });
+        tr.append("td").append("svg")
+            .attr("class", "legend")
+            .attr("width", '16')
+            .attr("height", '16')
+          .append("rect")
+            .attr("width", '16')
+            .attr("height", '16')
+            .attr("fill",function(d){ return segColor(d.type); })
 
         // create the second column for each segment.
-        tr.append("td").text(function(d){ return d.type;});
+        tr.append("td")
+          .text(function(d){ return d.type;});
 
         // create the third column for each segment.
-        tr.append("td").attr("class",'legendFreq')
+        tr.append("td")
+            .attr("class",'legendFreq')
             .text(function(d){ return d3.format(",")(d.freq);});
 
         // create the fourth column for each segment.
-        tr.append("td").attr("class",'legendPerc')
+        tr.append("td")
+            .attr("class",'legendPerc')
             .text(function(d){ return getLegend(d,lD);});
 
         // Utility function to be used to update the legend.
         leg.update = function(nD){
             // update the data attached to the row elements.
-            var l = legend.select("tbody").selectAll("tr").data(nD);
+            var l = legend.select("tbody")
+            .selectAll("tr")
+            .data(nD);
 
             // update the frequencies.
-            l.select(".legendFreq").text(function(d){ return d3.format(",")(d.freq);});
+            l.select(".legendFreq")
+            .text(function(d){ return d3.format(",")(d.freq);});
 
             // update the percentage column.
-            l.select(".legendPerc").text(function(d){ return getLegend(d,nD);});
+            l.select(".legendPerc")
+            .text(function(d){ return getLegend(d,nD);});
         }
 
         function getLegend(d,aD){ // Utility function to compute percentage.
-            return d3.format("%.")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));
+            return d3.format(".0%")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));
         }
 
         return leg;
@@ -299,12 +305,8 @@ function dashboard(id, fData){
         return {type:d, freq: d3.sum(fData.map(function(t){ return t.year[d];}))};
     });
 
-    console.log("tF", tF)
-
     // calculate total frequency by state for all segment.
     var sF = fData.map(function(d){return [d.find,d.total];});
-
-    console.log("sF",sF)
 
     var hG = histoGram(sF), // create the histogram.
         pC = pieChart(tF), // create the pie-chart.
