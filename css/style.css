@@ -33,10 +33,6 @@ g rect {
     border-radius: 10px;
 }
 
-.legendTime {
-  padding-left: 50px;
-}
-
 .fixed-nav-bar {
   position: relative;
   margin: 0 auto;
@@ -81,6 +77,12 @@ g rect {
 }
 
 #timeline {
+  border: 1px solid #888;
+}
+
+#timeline_legend {
+  padding-left: 10px;
+  padding-top: 120px;
   border: 1px solid #888;
 }
 

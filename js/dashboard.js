@@ -74,14 +74,15 @@ function change() {
     // console.log("check 1", artefact);
     check = 0;
   }
-}
+  
+}function segColor(c){ return {SLP2004:"red",SLP2005:"orange",SLP2008:"yellow"}[c]; }
 
 dashboard('#dashboard', ware);
 
 function dashboard(id, fData){
 
     var barColor = 'steelblue';
-    function segColor(c){ return {SLP2004:"yellow",SLP2005:"orange",SLP2008:"green"}[c]; }
+    
 
     // compute total for each state.
     fData.forEach(function(d){
@@ -104,21 +105,25 @@ function dashboard(id, fData){
             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
 
         // create function for x-axis mapping.
-        var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1)
-                .domain(fD.map(function(d) { return d[0]; }));
+        var x = d3.scale.ordinal()
+            .rangeRoundBands([0, hGDim.w], 0.1)
+            .domain(fD.map(function(d) { return d[0]; }));
 
         // Add x-axis to the histogram svg.
-        hGsvg.append("g").attr("class", "x axis")
+        hGsvg.append("g")
+            .attr("class", "x axis")
             .attr("transform", "translate(0," + hGDim.h + ")")
             .call(d3.svg.axis().scale(x).orient("bottom"));
 
         // Create function for y-axis map.
-        var y = d3.scale.linear().range([hGDim.h, 0])
-                .domain([0, d3.max(fD, function(d) { return d[1]; })]);
+        var y = d3.scale.linear()
+              .range([hGDim.h, 0])
+              .domain([0, d3.max(fD, function(d) { return d[1]; })]);
 
         // Create bars for histogram to contain rectangles and freq labels.
-        var bars = hGsvg.selectAll(".bar").data(fD).enter()
-                .append("g").attr("class", "bar");
+        var bars = hGsvg.selectAll(".bar")
+            .data(fD).enter()
+              .append("g").attr("class", "bar");
  
         //create the rectangles.
         bars.append("rect")
@@ -180,7 +185,7 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:250, h: 250};
+        var pC ={},    pieDim ={w:250, h: 500};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
         // create svg for pie chart.
