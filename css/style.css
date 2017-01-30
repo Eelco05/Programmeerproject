@@ -74,6 +74,11 @@ g rect {
     margin: 0 auto;
     margin-top: 70px;
     border:2px solid red;
+    background-color: white;
+}
+
+#timeline {
+  border: 1px solid #888;
 }
 
 #datamap, #intro {

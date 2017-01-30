@@ -45,19 +45,8 @@ var ware = [
   ,{find:"BT",year:{"SLP2004":0,"SLP2005":0,"SLP2008":19}}
 ];
 
-var dash = d3.select('#dashboard')
-var check = 0;
-
-
-// function changeYear (d) {
-//   var i = 0;
-//   d.forEach(function (e, i) {
-//     var years = d3.keys(d[i].year);
-//     console.log(years);
-//   })
-// }
-
-// changeYear(ware)
+var dash = d3.select('#dashboard'),
+    check = 0;
 
 function change() {
   if (check == 0) {
@@ -78,10 +67,12 @@ function change() {
 
 dashboard('#dashboard', ware);
 
+function segColor(c){ return {SLP2004:"yellow",SLP2005:"orange",SLP2008:"green"}[c]; }
+
 function dashboard(id, fData){
 
     var barColor = 'steelblue';
-    function segColor(c){ return {SLP2004:"yellow",SLP2005:"orange",SLP2008:"green"}[c]; }
+    
 
     // compute total for each state.
     fData.forEach(function(d){
