@@ -9,13 +9,11 @@ html, body {
 }
 
 body {
-
     margin:0 auto;
 }
 
 h1, h2, h3 {
     text-align: center;
-    color: red;
 }
 
 img {
@@ -31,6 +29,15 @@ g rect {
    -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
+}
+
+/* google map api */
+#map {
+  height: 500px;
+  width: 40%;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .fixed-nav-bar {
@@ -80,11 +87,18 @@ g rect {
   border: 1px solid #888;
 }
 
-#timeline_legend {
-  padding-left: 10px;
-  padding-top: 120px;
+.colorLegend {
+  padding-top: 40px;
   border: 1px solid #888;
 }
+
+#timeline_legend table {
+  width: 304px;
+  border: 1px solid #888;
+}
+#timeline_legend th { border-right: 1px solid gray; }
+#timeline_legend tr { border-bottom:1px solid grey; }
+#timeline_legend tr:first-child { border-top:1px solid grey; }
 
 #datamap, #intro {
     background: transparent;
@@ -95,12 +109,10 @@ g rect {
 }
 
 .histogram {
-  align-self: right;
   border: 1px solid #888;
 }
 
 .pie {
-  align-self: left;
   border: 1px solid #888;
 }
 
@@ -114,11 +126,9 @@ g rect {
 /* dashboard */
 
 path {  stroke: #fff; }
-path:hover {  stroke-width: 2; stroke: red; }
-rect:hover {  stroke-width: 2; stroke: red; }
+path:hover { opacity: 0.5; }
+rect:hover { stroke-width: 1; stroke: black; }
 .axis {  font: 10px sans-serif; }
-.legend tr{    border-bottom:1px solid grey; }
-.legend tr:first-child{    border-top:1px solid grey; }
 
 .axis path,
 .axis line {
@@ -130,17 +140,17 @@ rect:hover {  stroke-width: 2; stroke: red; }
 .x.axis path {  display: none; }
 
 .legend{
-    margin: 0 auto;
+    /*padding-left: 10px;*/
     position: relative;
     border-collapse: collapse;
     border-spacing: 0px;
 }
 .legend td{
     padding:4px 5px;
-    vertical-align:bottom;
+    vertical-align: left;
 }
 .legendFreq, .legendPerc{
-    align:right;
+
     width:50px;
 }
 

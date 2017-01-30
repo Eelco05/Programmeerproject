@@ -48,6 +48,12 @@ var ware = [
 var dash = d3.select('#dashboard')
 var check = 0;
 
+d3.csv("data/SLP_total_magled_by_period_red.csv", function(data) {
+  console.log(data);
+  d3.nest()
+
+})
+
 
 // function changeYear (d) {
 //   var i = 0;
@@ -75,7 +81,7 @@ function change() {
     check = 0;
   }
   
-}function segColor(c){ return {SLP2004:"red",SLP2005:"orange",SLP2008:"yellow"}[c]; }
+}function segColor(c){ return {SLP2004:"#a63603",SLP2005:"#e6550d",SLP2008:"#fd8d3c"}[c]; }
 
 dashboard('#dashboard', ware);
 
@@ -94,8 +100,8 @@ function dashboard(id, fData){
     // function to handle histogram.
     function histoGram(fD){
         var hG={},    hGDim = {t: 70, r: 0, b: 30, l: 20};
-        hGDim.w = 900 - hGDim.l - hGDim.r,
-        hGDim.h = 500 - hGDim.t - hGDim.b;
+        hGDim.w = 700 - hGDim.l - hGDim.r,
+        hGDim.h = 450 - hGDim.t - hGDim.b;
 
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
@@ -185,7 +191,7 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:250, h: 500};
+        var pC ={},    pieDim ={w:250, h: 450};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
         // create svg for pie chart.

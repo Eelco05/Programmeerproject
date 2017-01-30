@@ -1,10 +1,12 @@
 d3.csv('data/periods_timescale.csv', function (error,data) {
 
+	console.log("table");
+
   function tabulate(data, columns) {
   		console.log(data);
   		console.log(columns);
 
-		var table = d3.select('#timeline_periods')
+		var table = d3.select('#timeline_legend')
 			.append('table');
 
 		var thead = table.append('thead')
@@ -39,5 +41,6 @@ d3.csv('data/periods_timescale.csv', function (error,data) {
 
 	// render the table(s)
 	tabulate(data, ['Shorthand', 'Period', 'Timescale']); // 2 column table
+	colorLegend();
 
 });

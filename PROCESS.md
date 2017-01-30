@@ -176,5 +176,9 @@
 
 ### ToDo
 1. make two legends for timeline, color scale and period dating
+(still need to scale color correctly)
 2. link visualisation 3 to sort by campaign year
 3. clean code to maintenance standard (bettercodehub)
+4. check code against site conditions
+5. write report
+6. make demo

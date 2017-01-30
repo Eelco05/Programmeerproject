@@ -13,6 +13,7 @@ function timeline (data) {
       height = +svg.attr("height") - margin.top - margin.bottom,
       
   g = svg.append("g")
+      .attr("class", "barChart")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   var keys = [];
@@ -60,7 +61,7 @@ function timeline (data) {
       .attr("class", function(d) { return d.Period; })
       .attr("x", function(d) { return scaleX(d.low); })
       .attr("y", function(d) { return scaleY(d.Period); })
-      .attr("height", 11) //function(d) { return logScale(d.Number); })
+      .attr("height", height/data.length) //function(d) { return logScale(d.Number); })
       .attr("width", function(d) { return scaleX(d.high) - scaleX(d.low); })
       .attr("fill", function(d) { return colorScale(d.Number) })
       .on('mouseover', tool_tip.show)
