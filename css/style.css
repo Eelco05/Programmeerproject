@@ -33,6 +33,10 @@ g rect {
     border-radius: 10px;
 }
 
+.legendTime {
+  padding-left: 50px;
+}
+
 .fixed-nav-bar {
   position: relative;
   margin: 0 auto;
@@ -64,7 +68,6 @@ g rect {
     text-decoration: none;
     font-size: 20px;
 }
-
 
 #wrapper {
     display: flex;

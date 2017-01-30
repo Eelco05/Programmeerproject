@@ -169,7 +169,12 @@
 ## Day 16 30-01-'17
 
 ### Standup
-- 
+- make todo
 
 ### Work
 - Made some progres towords finishing turning vis3 90 degrees
+
+### ToDo
+1. make two legends for timeline, color scale and period dating
+2. link visualisation 3 to sort by campaign year
+3. clean code to maintenance standard (bettercodehub)

@@ -1,161 +1,140 @@
-(function() {
-d3.layout.timeline = function() {
-    var timelines = [];
-    var dateAccessor = function (d) {return new Date(d)};
-    var processedTimelines = [];
-    var startAccessor = function (d) {return d.start};
-    var endAccessor = function (d) {return d.end};
-    var size = [500,100];
-    var timelineExtent = [-Infinity, Infinity];
-    var setExtent = [];
-    var displayScale = d3.scale.linear();
-    var swimlanes = [];
-    var padding = 0;
-    var fixedExtent = false;
-    var maximumHeight = Infinity;
+d3.json("data/finds_period.json", function(error, data) {
+  if (error) throw error;
 
-    function processTimelines() {
-      timelines.forEach(function (band) {
-        var projectedBand = {};
-            for (var x in band) {
-                if (band.hasOwnProperty(x)) {
-                    projectedBand[x] = band[x];
-                }
-            }
-        projectedBand.start = dateAccessor(startAccessor(band));
-        projectedBand.end = dateAccessor(endAccessor(band));
-        projectedBand.lane = 0;
-        processedTimelines.push(projectedBand);
-      });
-    }
+  var keys = [];
+  var keysRange = []
+  var calcMean;
 
-    function projectTimelines() {
-        if (fixedExtent === false) {
-            var minStart = d3.min(processedTimelines, function (d) {return d.start});
-            var maxEnd = d3.max(processedTimelines, function (d) {return d.end});
-            timelineExtent = [minStart,maxEnd];
-        }
-        else {
-            timelineExtent = [dateAccessor(setExtent[0]), dateAccessor(setExtent[1])];
-        }
+  var colorScale = d3.scaleLog()
+      .domain([1, 7443])
+      .range(['lightgray','blue']);
 
-        displayScale.domain(timelineExtent).range([0,size[0]]);
+  var logScale = d3.scaleLog()
+      .domain([1, 7443])
+      .range([1,2])
 
-        processedTimelines.forEach(function (band) {
-            band.originalStart = band.start;
-            band.originalEnd = band.end;
-            band.start = displayScale(band.start);
-            band.end = displayScale(band.end);
-        });
-    }
+  data.forEach(function(d, i) { keys[i] = d.Number; i++; })
+  data.forEach(function(d, i) { calcMean = d.high + d.low; d.mean = (calcMean / 2) });
+  data.forEach(function(d, i) { keysRange[i] = logScale(keys[i]); i++; })
 
-    function fitsIn(lane, band) {
-      if (lane.end < band.start || lane.start > band.end) {
-        return true;
-      }
-      var filteredLane = lane.filter(function (d) {return d.start <= band.end && d.end >= band.start});
-      if (filteredLane.length === 0) {
-        return true;
-      }
-      return false;
-    }
+  data.sort(function(a, b) { return b.mean - a.mean; });
 
-    function findlane(band) {
-      //make the first array
-      if (swimlanes[0] === undefined) {
-        swimlanes[0] = [band];
-        return;
-      }
-      var l = swimlanes.length - 1;
-      var x = 0;
+  // console.log(data);
 
-      while (x <= l) {
-        if (fitsIn(swimlanes[x], band)) {
-          swimlanes[x].push(band);
-          return;
-        }
-        x++;
-      }
-      swimlanes[x] = [band];
-      return;
-    }
+  var low = d3.min(data, function(d) { return d.low})
+  var high = d3.max(data, function(d) { return d.high})
 
-    function timeline(data) {
-      if (!arguments.length) return timeline;
+  var svg = d3.select("#timeline"),
+      margin = {top: 40, right: 80, bottom: 30, left: 40},
+      width = +svg.attr("width") - margin.left - margin.right,
+      height = +svg.attr("height") - margin.top - margin.bottom,
+      
+  g = svg.append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-      timelines = data;
+  var scaleX = d3.scaleLinear()
+      .domain([-10000, high]).nice()
+      .range([0, width]);
 
-      processedTimelines = [];
-      swimlanes = [];
+  var scaleY = d3.scaleBand()
+      .domain(data.map(function(d) { return d.Period; }))
+      .range([0, height])
+      .paddingInner(0.05)
+      .align(0.1);
 
-      processTimelines();
-        projectTimelines();
+  var tool_tip = d3.tip()
+    .attr("class", "d3-tip")
+    .style("opacity", 0.5)
+    .offset([-8, 0])
+    .html(function(d) { return "Period: " + "<strong>" + d.Period + "</strong>" + "<br>" + 
+      "Total finds: " + "<strong>" + d.Number + "</strong>" + "<br>" +
+      "Timespan: " + "<strong>" + d.low + "</strong>" + " to " + "<strong>" + d.high + "</strong>" + " BC"; 
+  });
+  g.call(tool_tip)
 
+  g.append("g")
+      .attr("class", "bar")
+    .selectAll("g")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", function(d) { return d.Period; })
+      .attr("x", function(d) { return scaleX(d.low); })
+      .attr("y", function(d) { return scaleY(d.Period); })
+      .attr("height", 11) //function(d) { return logScale(d.Number); })
+      .attr("width", function(d) { return scaleX(d.high) - scaleX(d.low); })
+      .attr("fill", function(d) { return colorScale(d.Number) })
+      .on('mouseover', tool_tip.show)
+      .on('mouseout', tool_tip.hide);
 
-      processedTimelines.forEach(function (band) {
-        findlane(band);
-      });
+  g.append("g")
+      .attr("class", "axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(scaleX));
 
-      var height = size[1] / swimlanes.length;
-      height = Math.min(height, maximumHeight);
+  g.append("g")
+      .attr("class", "axis")
+      .call(d3.axisLeft(scaleY))
+    .append("text")
+      .attr("x", 5)
+      .attr("y", 0.5)
+      .attr("dy", "0.32em")
+      .attr("fill", "#000")
+      .attr("font-weight", "bold")
+      .attr("text-anchor", "start")
+      .text("Period");
 
-      swimlanes.forEach(function (lane, i) {
-        lane.forEach(function (band) {
-          band.y = i * (height);
-          band.dy = height - padding;
-          band.lane = i;
-        });
-      });
+var w = 140, h = 400;
 
-      return processedTimelines;
-    }
+var key = d3.select("#timeline")
+  .append("svg")
+    .attr("class", "legendTime")
+    .attr("width", w)
+    .attr("height", h);
 
-    timeline.dateFormat = function (_x) {
-       if (!arguments.length) return dateAccessor;
-       dateAccessor = _x;
-      return timeline;
-    }
+var legend = key.append("defs")
+  .append("svg:linearGradient")
+    .attr("id", "gradient")
+    .attr("x1", "100%")
+    .attr("y1", "0%")
+    .attr("x2", "100%")
+    .attr("y2", "100%")
+    .attr("spreadMethod", "pad");
 
-    timeline.bandStart = function (_x) {
-       if (!arguments.length) return startAccessor;
-       startAccessor = _x;
-      return timeline;
-    }
+legend.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "blue")
+    .attr("stop-opacity", 1);
 
-    timeline.bandEnd = function (_x) {
-       if (!arguments.length) return endAccessor;
-       endAccessor = _x;
-      return timeline;
-    }
+legend.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "lightgray")
+    .attr("stop-opacity", 1);
 
-    timeline.size = function (_x) {
-       if (!arguments.length) return size;
-       size = _x;
-      return timeline;
-    }
+key.append("rect")
+    // .attr("x", 700)
+    // .attr("y", 100)
+    .attr("width", w - 100)
+    .attr("height", h - 100)
+    .style("fill", "url(#gradient)")
+    .attr("transform", "translate(0,10)");
 
-    timeline.padding = function (_x) {
-       if (!arguments.length) return padding;
-       padding = _x;
-      return timeline;
-    }
+var y = d3.scaleLinear()
+    .range([1, 7443])
+    .domain([1, 2]);
 
-    timeline.extent = function (_x) {
-      if (!arguments.length) return timelineExtent;
-        fixedExtent = true;
-        setExtent = _x;
-        if (_x.length === 0) {
-          fixedExtent = false;
-        }
-      return timeline;
-    }
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("right");
 
-    timeline.maxBandHeight = function (_x) {
-      if (!arguments.length) return maximumHeight;
-        maximumHeight = _x;
-      return timeline;
-    }
+key.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(41,10)")
+    .call(yAxis)
+  .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 30)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("axis title");
 
-    return timeline;
-}
-})();
+});

@@ -45,8 +45,19 @@ var ware = [
   ,{find:"BT",year:{"SLP2004":0,"SLP2005":0,"SLP2008":19}}
 ];
 
-var dash = d3.select('#dashboard'),
-    check = 0;
+var dash = d3.select('#dashboard')
+var check = 0;
+
+
+// function changeYear (d) {
+//   var i = 0;
+//   d.forEach(function (e, i) {
+//     var years = d3.keys(d[i].year);
+//     console.log(years);
+//   })
+// }
+
+// changeYear(ware)
 
 function change() {
   if (check == 0) {
@@ -67,12 +78,10 @@ function change() {
 
 dashboard('#dashboard', ware);
 
-function segColor(c){ return {SLP2004:"yellow",SLP2005:"orange",SLP2008:"green"}[c]; }
-
 function dashboard(id, fData){
 
     var barColor = 'steelblue';
-    
+    function segColor(c){ return {SLP2004:"yellow",SLP2005:"orange",SLP2008:"green"}[c]; }
 
     // compute total for each state.
     fData.forEach(function(d){
@@ -291,6 +300,8 @@ function dashboard(id, fData){
         return leg;
     }
 
+    var legName = ["Sites visited in 2004", "Sites visited in 2005", "Sites visited in 2008"]
+
     // calculate total frequency by segment for all state.
     var tF = ['SLP2004','SLP2005','SLP2008'].map(function(d){
         return {type:d, freq: d3.sum(fData.map(function(t){ return t.year[d];}))};
@@ -299,7 +310,7 @@ function dashboard(id, fData){
     // calculate total frequency by state for all segment.
     var sF = fData.map(function(d){return [d.find,d.total];});
 
-    var hG = histoGram(sF), // create the histogram.
-        pC = pieChart(tF), // create the pie-chart.
+    var pC = pieChart(tF), // create the pie-chart.
+        hG = histoGram(sF), // create the histogram.
         leg= legend(tF);  // create the legend.
 }
