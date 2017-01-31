@@ -15,7 +15,7 @@
 //                  \/
 
 function colorLegend () {
-	console.log("legend");
+	// console.log("legend");
 
 	var w = 400, h = 140;
 
@@ -57,24 +57,24 @@ function colorLegend () {
 
 	var yLog = d3.scaleLog()
 			.range([w - 100, 0])
-			.domain([1, 7443]);
+			.domain([7443, 1]);
 
-	var yAxis = d3.svg.axis()
-			.scale(y)
-			.orient("right")
-			.ticks(20, d3.format(",.1s"));
+	// var yAxis = d3.svg.axis()
+	// 		.scale(y)
+	// 		.orient("right")
+	// 		.ticks(20, d3.format(",.1s"));
 
 	key.append("g")
 			.attr("class", "y axis")
 			.attr("transform", "translate(0,50)")
-			.call(d3.axisBottom(yLog))
+			.call(d3.axisBottom(yLog).tickValues([2,100,3500]).tickFormat(d3.format(",.0f")))
 		.append("text")
-			.attr("x", 130)
+			.attr("x", 90)
 			.attr("y", 25)
 			.attr("dy", "0.32em")
 			.attr("fill", "black")
 			.attr("font-weight", "bold")
 			.attr("text-anchor", "start")
-			.text("Total finds");
+			.text("Total number of finds (log)");
 
 }

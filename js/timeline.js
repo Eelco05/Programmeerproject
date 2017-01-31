@@ -14,12 +14,20 @@
 //                 \  /
 //                  \/
 
-d3.json("data/finds_period.json", function(error, data) {
-  if (error) throw error;
+var dataLoc = ["data/finds_period_total.json", "data/finds_period_2004.json", "data/finds_period_2005.json"];
+    year = 0;
 
-  timeline(data);
+changeYear(year);
 
-})
+function changeYear(i) { 
+  year = i 
+    d3.json(dataLoc[i], function(error, data) {
+    if (error) throw error;
+      d3.select("#timeline").selectAll("*").remove();
+      console.log(data)
+      timeline(data);
+  })
+}
 
 function timeline (data) {
   
@@ -86,7 +94,7 @@ function timeline (data) {
   g.append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(scaleX))
+      .call(d3.axisBottom(scaleX).tickValues([-10000,-7000,-3000,-350,-50,500,1500,1800]))
     .append("text")
       .attr("x", width / 2)
       .attr("y", 30)
@@ -95,6 +103,10 @@ function timeline (data) {
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
       .text("Year BC/AD");
+  
+  g.selectAll(".tick")
+    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "rotate(30)");
 
   g.append("g")
       .attr("class", "axis")

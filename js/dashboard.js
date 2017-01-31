@@ -86,7 +86,12 @@ function change() {
   } 
 };
 
-function segColor(c){ return {SLP2004:"#a63603",SLP2005:"#e6550d",SLP2008:"#fd8d3c"}[c]; }
+var grBl = d3.scale.linear().range([0,2]).domain(["blue", "green"])
+
+
+console.log(grBl(1));
+
+function segColor(c){ return {SLP2004:"#41b6c4",SLP2005:"#7fcdbb",SLP2008:"#c7e9b4"}[c]; }
 
 dashboard('#dashboard', ware);
 
@@ -224,6 +229,17 @@ function dashboard(id, fData){
             .style("fill", function(d) { return segColor(d.data.type); })
             .on("mouseover",mouseover)
             .on("mouseout",mouseout);
+
+        d3.select(".pie").append("g")
+          .append("text")
+            .attr("x", 50)
+            .attr("y", 80)
+            .attr("dy", "0.32em")
+            .attr("fill", "black")
+            .attr("font-size", "20px")
+            .attr("font-weight", "bold")
+            .text("Campaign years");
+
 
         // create function to update pie-chart. This will be used by histogram.
         pC.update = function(nD){

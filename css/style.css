@@ -32,6 +32,7 @@ body {
 
 h1, h2, h3 {
     text-align: center;
+    text-transform: uppercase;
 }
 
 img {
@@ -65,26 +66,32 @@ g rect {
     width: 95%;
     margin: 0 auto;
     margin-top: 5px;
-    border:2px solid red;
-    background-color: white;
+    opacity: 0.8;
+    /*border:2px solid red;*/
+    /*background-color: white;*/
 }
 
 #timeline {
-  border: 1px solid #888;
+  background-color: white;
+  margin-left: 120px;
+  /*border: 1px solid #888;*/
 }
 
 .colorLegend {
-  padding-top: 40px;
-  border: 1px solid #888;
+  padding-top: 3px;
+  background: white; opacity: 0.8;
+  max-height: 92px;
+  /*border: 1px solid #888;*/
 }
 
 #timeline_legend table {
-  width: 304px;
+  width: 300px;
   font-size: 13.5px;
+  color: black;
   border: 1px solid #888;
 }
-#timeline_legend th { border-right: 1px solid gray; }
-#timeline_legend tr { border-bottom:1px solid grey; }
+#timeline_legend th { background: white; opacity: 0.8; border-right: 1px solid gray; }
+#timeline_legend tr { background: white; opacity: 0.8; border-bottom:1px solid grey; }
 #timeline_legend tr:first-child { border-top:1px solid grey; }
 
 #datamap, #intro {
@@ -131,6 +138,7 @@ rect:hover { stroke-width: 1; stroke: black; }
     position: relative;
     border-collapse: collapse;
     border-spacing: 0px;
+    color: black;
 }
 .legend td{
     padding:4px 5px;
@@ -232,7 +240,7 @@ rect:hover { stroke-width: 1; stroke: black; }
     content: "Others";
     padding-right: 13px;
     background-color: #EEEEEE;
-    color: #7871BD;
+    color: steelblue;
     text-align: right;
 }
 .onoffswitch-switch {

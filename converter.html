@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script> -->
     <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/d3-legend.min.js"></script>
     <script type="text/javascript" src="js/d3-tip.js"></script>
-    <script type="text/javascript" src="js/datamaps.world.min.js"></script>
-    <script type="text/javascript" src="https://d3js.org/d3-dsv.v1.min.js"></script>
+    <!-- <script type="text/javascript" src="js/datamaps.world.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3-dsv.v1.min.js"></script> -->
 </head>
 <body>
     <h1>Sacred Landscape Project, Molise, Italy</h1>
@@ -32,12 +32,12 @@
     </nav>
 	<pre id="json"></pre>
     <script>
-        d3.csv('data/meta/SLP_total_magled_by_period.csv', function(data) {
+        d3.csv('data/SLP_total_magled_by_period_red.csv', function(data) {
 
             var type = d3.nest()
-            .key(function(d) { return d.Period; })
-            .key(function(d) { return "low : "+d.low }).sortKeys(d3.ascending)
-            .key(function(d) { return "High : "+d.high})
+            .key(function(d) { return d.Campaign; })
+            .key(function(d) { return d.Period })
+            // .key(function(d) { return "High : "+d.high})
             // .key(function(d) { return "SLP"+d.Campaign.split("-")[1]; })
             .rollup(function(e) { return { 
                 "Number": d3.sum(e, function(d) { return +d.Number; }),

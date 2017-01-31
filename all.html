@@ -25,6 +25,7 @@ St.nr: 10459006
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dropdown.css">
     <!-- libraries -->
     <script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <script type="text/javascript" src="js/d3.min.js"></script>
@@ -34,25 +35,12 @@ St.nr: 10459006
     <title>Sacred Landscape Project</title>
 </head>
 <body>
-    <h1>Sacred Landscape Project, Molise, Italy</h1>
+    <h1>Sacred Landscape Project</h1>
     <nav>
         <script> 
             $(function(){ $("nav").load("nav.html") });
         </script>
     </nav>
-    <div class="wrapper">
-        <div id="map"></div>
-        <script type="text/javascript" src=js/googleAPI.js></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLNI8WUSPeODZxlxKraDBqaLrxCSjE6P0&callback=initMap"></script>
-        <div id="intro">
-            <h2>Summery of research</h2>
-            <ul>
-                <li><a href="">This is what we <strong>there is</strong></a></li>
-                <li><a href="">This is what we <strong>want</strong></a></li>
-                <li><a href="">This is what we <strong>found out</strong></a></li>
-            </ul>
-        </div>
-    </div>
     <div class='wrapper'>
         <div class="onoffswitch">
             <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onchange="change()" checked>
@@ -65,8 +53,17 @@ St.nr: 10459006
         <script type="text/javascript" src="js/dashboard.js"></script>
     </div>
     <div class='wrapper'>
+        <div class="dropdown">
+          <button class="dropbtn">Change year</button>
+          <div class="dropdown-content">
+            <a onclick="changeYear(0)">Totaal</a>
+            <a onclick="changeYear(1)">2004</a>
+            <a onclick="changeYear(2)">2005</a>
+            <a>2008 (no data)</a>
+          </div>
+        </div>
         <script src="js/d3.v4.min.js"></script>
-        <svg id="timeline" width="650" height="550"></svg>
+        <svg id="timeline" width="500" height="450"></svg>
         <div id="timeline_legend"></div>   
         <script type="text/javascript" src="js/timeline.js"></script>
         <script type="text/javascript" src="js/timeline_periods.js"></script>
