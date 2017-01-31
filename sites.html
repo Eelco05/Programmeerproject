@@ -36,20 +36,22 @@ St.nr: 10459006
 <body>
     <h1>Sacred Landscape Project, Molise, Italy</h1>
     <nav>
-      <script> 
-        $(function(){ $("nav").load("nav.html") });
-      </script>
+        <script> 
+            $(function(){ $("nav").load("nav.html") });
+        </script>
     </nav>
-    <div class='wrapper'>
-        <div class="onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onchange="change()" checked>
-            <label class="onoffswitch-label" for="myonoffswitch">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
+    <div class="wrapper">
+        <div id="map"></div>
+        <script type="text/javascript" src=js/googleAPI.js></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLNI8WUSPeODZxlxKraDBqaLrxCSjE6P0&callback=initMap"></script>
+        <div id="intro">
+            <h2>The visited sites</h2>
+            <ul>
+                <li>This is what we there is</li>
+                <li>This is what we there is</li>
+                <li>This is what we there is</li>
+            </ul>
         </div>
-        <div id='dashboard'></div>
-        <script type="text/javascript" src="js/dashboard.js"></script>
     </div>
 </body>
 </html>

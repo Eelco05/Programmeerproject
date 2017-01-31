@@ -26,6 +26,7 @@ St.nr: 10459006
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/navbar.css">
     <!-- libraries -->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
     <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/d3-legend.min.js"></script>
     <script type="text/javascript" src="js/d3-tip.js"></script>
@@ -35,43 +36,9 @@ St.nr: 10459006
 <body>
     <h1>Sacred Landscape Project, Molise, Italy</h1>
     <nav>
-      <ul class="nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="intro.html">The Project</a>
-          <ul>
-            <li><a href="#">History</a></li>
-            <li><a href="#">Sites</a></li>
-            <li><a href="#">Team</a></li>
-            <!-- <li><a href="#">item</a></li> -->
-          </ul>
-        </li>
-        <li><a href="findtypes.html">Find types</a>
-          <!-- <ul>
-            <li><a href="#">item a lonng submenu</a></li>
-            <li><a href="#">item</a>
-              <ul>
-                <li><a href="#">Ray</a></li>
-                <li><a href="#">Veronica</a></li>
-                <li><a href="#">Bushy</a></li>
-                <li><a href="#">Havoc</a></li>
-              </ul>
-            </li>
-            <li><a href="findperiods.html">Find periods</a></li>
-            <li><a href="#">item</a></li>
-          </ul> -->
-        </li>
-        <li><a href="findperiod.html">Find periods</a></li>
-        <li><a href="all.html">All</a></li>
-        <!-- <li><a href="#">Rants</a>
-          <ul>
-            <li><a href="#">item</a></li>
-            <li><a href="#">item</a></li>
-            <li><a href="#">item</a></li>
-            <li><a href="#">item</a></li>
-          </ul>
-        </li> -->
-        <li><a href="about.html">About me</a></li>
-      </ul>
+      <script> 
+        $(function(){ $("nav").load("nav.html") });
+      </script>
     </nav>
     <div class='wrapper'>
         <script src="js/d3.v4.min.js"></script>
