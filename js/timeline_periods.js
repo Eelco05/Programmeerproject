@@ -1,3 +1,19 @@
+
+// Programmeerproject
+
+// Eelco Alink <eelco.alink@gmail.com>
+// St.nr: 10459006
+
+//                 ====
+//                 \\// 
+//            <=>===[]===<=>
+//                  []
+//                  []
+//                  []
+//                 _[]_
+//                 \  /
+//                  \/
+
 d3.csv('data/periods_timescale.csv', function (error,data) {
 
 	console.log("table");

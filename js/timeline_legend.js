@@ -1,3 +1,19 @@
+
+// Programmeerproject
+
+// Eelco Alink <eelco.alink@gmail.com>
+// St.nr: 10459006
+
+//                 ====
+//                 \\// 
+//            <=>===[]===<=>
+//                  []
+//                  []
+//                  []
+//                 _[]_
+//                 \  /
+//                  \/
+
 function colorLegend () {
 	console.log("legend");
 
@@ -51,7 +67,7 @@ function colorLegend () {
 	key.append("g")
 			.attr("class", "y axis")
 			.attr("transform", "translate(0,50)")
-			.call(d3.axisBottom(y))
+			.call(d3.axisBottom(yLog))
 		.append("text")
 			.attr("x", 130)
 			.attr("y", 25)

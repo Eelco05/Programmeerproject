@@ -1,3 +1,20 @@
+
+// Programmeerproject
+
+// Eelco Alink <eelco.alink@gmail.com>
+// St.nr: 10459006
+
+//                 ====
+//                 \\// 
+//            <=>===[]===<=>
+//                  []
+//                  []
+//                  []
+//                 _[]_
+//                 \  /
+//                  \/
+
+
 function initMap() {
   var center = {lat: 41.552772, lng: 14.745485};
       galdo = {lat: 41.590720, lng: 14.752160};
@@ -5,7 +22,8 @@ function initMap() {
   
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
-    center: center
+    center: center,
+    scrollwheel: false
   });
 
   map.setMapTypeId(google.maps.MapTypeId.HYBRID);

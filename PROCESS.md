@@ -182,3 +182,8 @@
 4. check code against site conditions
 5. write report
 6. make demo
+
+## Day 17 31-01-'17
+
+### Standup
+- rotate dash axis legend and add table legend

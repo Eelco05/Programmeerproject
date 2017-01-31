@@ -1,4 +1,19 @@
 
+// Programmeerproject
+
+// Eelco Alink <eelco.alink@gmail.com>
+// St.nr: 10459006
+
+//                 ====
+//                 \\// 
+//            <=>===[]===<=>
+//                  []
+//                  []
+//                  []
+//                 _[]_
+//                 \  /
+//                  \/
+
 var obj = [
    {find:"STO",year:{SLP2004:31,SLP2005:71,SLP2008:0}}
    ,{find:"GLA",year:{SLP2004:7,SLP2005:2,SLP2008:0}}
@@ -54,17 +69,6 @@ d3.csv("data/SLP_total_magled_by_period_red.csv", function(data) {
 
 })
 
-
-// function changeYear (d) {
-//   var i = 0;
-//   d.forEach(function (e, i) {
-//     var years = d3.keys(d[i].year);
-//     console.log(years);
-//   })
-// }
-
-// changeYear(ware)
-
 function change() {
   if (check == 0) {
     artefact = obj;
@@ -79,9 +83,10 @@ function change() {
     dashboard('#dashboard', artefact);
     // console.log("check 1", artefact);
     check = 0;
-  }
-  
-}function segColor(c){ return {SLP2004:"#a63603",SLP2005:"#e6550d",SLP2008:"#fd8d3c"}[c]; }
+  } 
+};
+
+function segColor(c){ return {SLP2004:"#a63603",SLP2005:"#e6550d",SLP2008:"#fd8d3c"}[c]; }
 
 dashboard('#dashboard', ware);
 

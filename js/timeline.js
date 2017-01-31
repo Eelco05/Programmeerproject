@@ -1,3 +1,19 @@
+
+// Programmeerproject
+
+// Eelco Alink <eelco.alink@gmail.com>
+// St.nr: 10459006
+
+//                 ====
+//                 \\// 
+//            <=>===[]===<=>
+//                  []
+//                  []
+//                  []
+//                 _[]_
+//                 \  /
+//                  \/
+
 d3.json("data/finds_period.json", function(error, data) {
   if (error) throw error;
 
