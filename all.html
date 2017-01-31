@@ -73,8 +73,37 @@ St.nr: 10459006
         <li><a href="about.html">About me</a></li>
       </ul>
     </nav>
-    <div align="center">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    <div class="wrapper">
+        <div id="map"></div>
+        <script type="text/javascript" src=js/googleAPI.js></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLNI8WUSPeODZxlxKraDBqaLrxCSjE6P0&callback=initMap"></script>
+        <div id="intro">
+            <h2>Summery of research</h2>
+            <ul>
+                <li><a href="">This is what we <strong>there is</strong></a></li>
+                <li><a href="">This is what we <strong>want</strong></a></li>
+                <li><a href="">This is what we <strong>found out</strong></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class='wrapper'>
+        <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onchange="change()" checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+            </label>
+        </div>
+        <div id='dashboard'></div>
+        <script type="text/javascript" src="js/dashboard.js"></script>
+    </div>
+    <div class='wrapper'>
+        <script src="js/d3.v4.min.js"></script>
+        <svg id="timeline" width="650" height="550"></svg>
+        <div id="timeline_legend"></div>   
+        <script type="text/javascript" src="js/timeline.js"></script>
+        <script type="text/javascript" src="js/timeline_periods.js"></script>
+        <script type="text/javascript" src="js/timeline_legend.js"></script>
     </div>
 </body>
 </html>

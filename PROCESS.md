@@ -187,3 +187,7 @@
 
 ### Standup
 - rotate dash axis legend and add table legend
+
+### Work
+- redid the navbar and changed page layout
+- started with adding interaction to the third visualisation
