@@ -21,7 +21,7 @@
 html, body {
     background-color: lightblue;
     color: darkblue;
-    font-family: Lora, serif;
+    font-family: Arvo;
     font-size: 16px;
     line-height: 1.5;
 }
@@ -32,7 +32,7 @@ body {
 
 h1, h2, h3 {
     text-align: center;
-    text-transform: uppercase;
+    font-family: Arvo;
 }
 
 img {
@@ -143,7 +143,7 @@ g .bar rect text {
 path {  stroke: #fff; }
 path:hover { opacity: 0.5; }
 rect:hover { stroke-width: 1; stroke: black; }
-.axis {  font: 10px sans-serif; }
+.axis {  font: 10px Arvo; }
 
 .axis path,
 .axis line {

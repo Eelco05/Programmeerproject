@@ -191,3 +191,22 @@
 ### Work
 - redid the navbar and changed page layout
 - started with adding interaction to the third visualisation
+
+## Day 18 01-02-'17
+
+### Standup
+- different font (avenir)
+- note which browser i use
+- center graphics
+
+### Work
+-
+
+### ToDo
+1. make two legends for timeline, color scale and period dating
+(still need to scale color correctly)
+2. link visualisation 3 to sort by campaign year
+3. clean code to maintenance standard (bettercodehub)
+4. check code against site conditions
+5. write report
+6. make demo
