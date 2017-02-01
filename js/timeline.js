@@ -68,14 +68,28 @@ function timeline (data) {
       .align(0.1);
 
   var tool_tip = d3.tip()
-    .attr("class", "d3-tip")
-    .style("opacity", 0.5)
-    .offset([-8, 0])
-    .html(function(d) { return "Period: " + "<strong>" + d.Period + "</strong>" + "<br>" + 
-      "Total finds: " + "<strong>" + d.Number + "</strong>" + "<br>" +
-      "Timespan: " + "<strong>" + d.low + "</strong>" + " to " + "<strong>" + d.high + "</strong>" + " BC"; 
+      .attr("class", "d3-tip")
+      .style("opacity", 0.5)
+      .offset([-8, 0])
+      .html(function(d) { return "Period: " + "<strong>" + d.Period + "</strong>" + "<br>" + 
+                                 "Total finds: " + "<strong>" + d.Number + "</strong>" + "<br>" +
+                                 "Timespan: " + "<strong>" + d.low + "</strong>" + " to " + "<strong>" + d.high + "</strong>" + " BC"; 
   });
   g.call(tool_tip)
+
+  // gridlines in x axis function
+  function make_x_gridlines() {   
+      return d3.axisBottom(scaleX)
+          .tickValues([-10000,-7000,-3000,-350,-50,500,1500,1800]);
+  }
+
+  g.append("g")
+    .attr("class", "grid")
+    .attr("transform", "translate(0," + height + ")")
+    .call(make_x_gridlines()
+      .tickSize(10-height)
+      .tickFormat("")
+      );
 
   g.append("g")
       .attr("class", "bar")
@@ -95,6 +109,11 @@ function timeline (data) {
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(scaleX).tickValues([-10000,-7000,-3000,-350,-50,500,1500,1800]))
+    .selectAll("text")
+      .style("text-anchor", "start")
+      .attr("dx", ".8em")
+      .attr("dy", ".10em")
+      .attr("transform", "rotate(45)")
     .append("text")
       .attr("x", width / 2)
       .attr("y", 30)
@@ -103,10 +122,6 @@ function timeline (data) {
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
       .text("Year BC/AD");
-  
-  g.selectAll(".tick")
-    .attr("transform", "translate(0," + height + ")")
-    .attr("transform", "rotate(30)");
 
   g.append("g")
       .attr("class", "axis")

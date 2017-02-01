@@ -50,6 +50,19 @@ g rect {
     border-radius: 10px;
 }
 
+.bar rect { opacity: 0.8; }
+
+/*grid*/
+.grid .tick {
+  stroke: lightgrey;
+  opacity: 0.2;
+  shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
 /* google map api */
 #map {
   height: 500px;
@@ -64,32 +77,35 @@ g rect {
     justify-content: left;
     height: 80%;
     width: 95%;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+    margin-left: 120px;
     margin-top: 5px;
-    opacity: 0.8;
+   /* opacity: 0.8;*/
     /*border:2px solid red;*/
+    max-width: 1000px;
     /*background-color: white;*/
 }
 
 #timeline {
   background-color: white;
-  margin-left: 120px;
-  /*border: 1px solid #888;*/
+  margin-left: 90px;
+  border: 2px solid steelblue;
 }
 
 .colorLegend {
   padding-top: 3px;
-  background: white; opacity: 0.8;
+  background: white; 
+  opacity: 0.8;
   max-height: 92px;
-  /*border: 1px solid #888;*/
 }
 
 #timeline_legend table {
   width: 300px;
   font-size: 13.5px;
   color: black;
-  border: 1px solid #888;
+  border: 2px solid steelblue;
 }
+
 #timeline_legend th { background: white; opacity: 0.8; border-right: 1px solid gray; }
 #timeline_legend tr { background: white; opacity: 0.8; border-bottom:1px solid grey; }
 #timeline_legend tr:first-child { border-top:1px solid grey; }
@@ -103,12 +119,18 @@ g rect {
 }
 
 .histogram {
-  border: 1px solid #888;
+  background-color: white;
+  border: 2px solid steelblue;
 }
 
 .pie {
-  border: 1px solid #888;
+  margin-left: 20px;
 }
+
+/*.legend {
+  margin-left: 55px;
+}*/
+
 
 .axis path,
 .axis line {
@@ -198,7 +220,8 @@ rect:hover { stroke-width: 1; stroke: black; }
 .onoffswitch {
     position: absolute;
     width: 108px;
-    margin: 10px;
+    margin-left: 80px;
+    margin-top: 10px;
     -webkit-user-select:none;
     -moz-user-select:none;
     -ms-user-select: none;
