@@ -50,6 +50,10 @@ g rect {
     border-radius: 10px;
 }
 
+g .bar rect text {
+  font-size: 12px;
+}
+
 .bar rect { opacity: 0.8; }
 
 /*grid*/
@@ -127,11 +131,6 @@ g rect {
   margin-left: 20px;
 }
 
-/*.legend {
-  margin-left: 55px;
-}*/
-
-
 .axis path,
 .axis line {
   fill: none;
@@ -155,20 +154,23 @@ rect:hover { stroke-width: 1; stroke: black; }
 
 .x.axis path {  display: none; }
 
-.legend{
-    /*padding-left: 10px;*/
+.legend {
+    font-size: 12px;
     position: relative;
     border-collapse: collapse;
     border-spacing: 0px;
     color: black;
 }
-.legend td{
+.legend td {
     padding:4px 5px;
     vertical-align: left;
 }
-.legendFreq, .legendPerc{
-
+.legendFreq, .legendPerc {
     width:50px;
+}
+
+.legend svg {
+  border: 1px solid black;
 }
 
 

@@ -109,9 +109,9 @@ function dashboard(id, fData){
 
     // function to handle histogram.
     function histoGram(fD){
-        var hG={},    hGDim = {t: 70, r: 0, b: 30, l: 20};
-        hGDim.w = 700 - hGDim.l - hGDim.r,
-        hGDim.h = 450 - hGDim.t - hGDim.b;
+        var hG={},    hGDim = {t: 40, r: 10, b: 40, l: 10};
+        hGDim.w = 600 - hGDim.l - hGDim.r,
+        hGDim.h = 350 - hGDim.t - hGDim.b;
 
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
@@ -129,7 +129,12 @@ function dashboard(id, fData){
         hGsvg.append("g")
             .attr("class", "x axis")
             .attr("transform", "translate(0," + hGDim.h + ")")
-            .call(d3.svg.axis().scale(x).orient("bottom"));
+            .call(d3.svg.axis().scale(x).orient("bottom"))
+            .selectAll("text")
+              .style("text-anchor", "start")
+              .attr("dx", ".8em")
+              .attr("dy", ".10em")
+              .attr("transform", "rotate(45)")
 
         // Create function for y-axis map.
         var y = d3.scale.linear()
@@ -155,7 +160,8 @@ function dashboard(id, fData){
         bars.append("text").text(function(d){ return d3.format(",")(d[1])})
             .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
             .attr("y", function(d) { return y(d[1])-5; })
-            .attr("text-anchor", "middle");
+            .attr("text-anchor", "middle")
+            .style("font-size", "11");
 
         // bars.select("#dashboard")
         //   .select("rect")
@@ -201,7 +207,7 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:250, h: 450};
+        var pC ={},    pieDim ={w:225, h: 350};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
         // create svg for pie chart.
@@ -233,7 +239,7 @@ function dashboard(id, fData){
         d3.select(".pie").append("g")
           .append("text")
             .attr("x", 50)
-            .attr("y", 80)
+            .attr("y", 55)
             .attr("dy", "0.32em")
             .attr("fill", "black")
             .attr("font-size", "20px")
@@ -288,11 +294,11 @@ function dashboard(id, fData){
         // create the first column for each segment.
         tr.append("td").append("svg")
             .attr("class", "legend")
-            .attr("width", '16')
-            .attr("height", '16')
+            .attr("width", '12')
+            .attr("height", '12')
           .append("rect")
-            .attr("width", '16')
-            .attr("height", '16')
+            .attr("width", '12')
+            .attr("height", '12')
             .attr("fill",function(d){ return segColor(d.type); })
 
         // create the second column for each segment.
