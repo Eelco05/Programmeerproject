@@ -130,7 +130,7 @@ function timeline (data) {
       .attr("x", -10)
       .attr("y", 0.5)
       .attr("dy", "0.32em")
-      .attr("fill", "#000")
+      .attr("fill", "darkblue")
       .attr("font-size", "20px")
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")

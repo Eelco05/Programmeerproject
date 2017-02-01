@@ -203,7 +203,7 @@
 - fixed numerous bugs
 
 ### ToDo
-1. legend for the find type page
+1. legend for the find type page (probably not possible)
 2. add text to home, history and sites
 3. add page for references
 4. add banner to top an bottom

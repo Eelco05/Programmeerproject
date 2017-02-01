@@ -17,7 +17,6 @@
 **************************************/
 
 /* Index page */
-
 html, body {
     background-color: lightblue;
     color: darkblue;
@@ -34,14 +33,24 @@ h1, h2, h3 {
     text-align: center;
 }
 
+h1 {
+  background-image: url("../img/campobasso.jpg");
+  background-repeat: no-repeat;
+  padding:40px;
+  background-position: 50% 10%;
+}
+
 img {
     width: 100%;
     height: 100%;
 }
 
-/*pre {
-    margin-top: 70px;
-}*/
+#appendix {
+  text-align: center;
+  font-size: 10px;
+  color: black;
+  border: 0.5px solid steelblue;
+}
 
 /* google map api */
 #map {

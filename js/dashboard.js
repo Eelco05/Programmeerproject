@@ -239,7 +239,7 @@ function dashboard(id, fData){
             .attr("x", 32)
             .attr("y", 30)
             .attr("dy", "0.32em")
-            .attr("fill", "black")
+            .attr("fill", "darkblue")
             .attr("font-size", "20px")
             .attr("font-weight", "bold")
             .text("Campaign years");
