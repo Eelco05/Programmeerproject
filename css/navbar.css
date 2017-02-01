@@ -51,18 +51,9 @@ nav ul {
     border-radius:6px;
 }
 
-.nav li { 
-    position: relative; 
-}
-.nav > li { 
-    float:left; 
-    border-bottom: 4px steelblue solid; 
-    margin-right: 1px; 
-} 
-.nav > li > a { 
-    margin-bottom: 1px;
-    box-shadow: inset 0 2em .33em -.5em transparent; 
-}
+.nav li { position: relative; }
+.nav > li { float:left; border-bottom: 4px steelblue solid; margin-right: 1px; } 
+.nav > li > a { margin-bottom: 1px; box-shadow: inset 0 2em .33em -.5em transparent; }
 .nav > li:hover , .nav > li:hover >a{  border-bottom-color:steelblue;}
 .nav li:hover > a { color:steelblue; }
 .nav > li:first-child  { border-radius: 4px 0 0 4px; } 

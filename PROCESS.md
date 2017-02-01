@@ -200,13 +200,14 @@
 - center graphics
 
 ### Work
--
+- fixed numerous bugs
 
 ### ToDo
-1. make two legends for timeline, color scale and period dating
-(still need to scale color correctly)
-2. link visualisation 3 to sort by campaign year
-3. clean code to maintenance standard (bettercodehub)
-4. check code against site conditions
-5. write report
-6. make demo
+1. legend for the find type page
+2. add text to home, history and sites
+3. add page for references
+4. add banner to top an bottom
+5. clean code to maintenance standard (bettercodehub)
+6. check code against site conditions (add header to files, with references)
+7. write report
+8. make demo

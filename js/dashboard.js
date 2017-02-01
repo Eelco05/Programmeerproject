@@ -24,50 +24,45 @@ var obj = [
 ];
 
 var ware = [
-  {find:"ARCH",year:{"SLP2004":12,"SLP2005":0,"SLP2008":0}}
-  ,{find:"ARS",year:{"SLP2004":39,"SLP2005":27,"SLP2008":0}}
-  ,{find:"AU",year:{"SLP2004":7,"SLP2005":4,"SLP2008":0}}
-  ,{find:"BG",year:{"SLP2004":134,"SLP2005":120,"SLP2008":0}}
-  ,{find:"CC",year:{"SLP2004":193,"SLP2005":10,"SLP2008":0}}
-  ,{find:"CKW",year:{"SLP2004":8,"SLP2005":0,"SLP2008":0}}
-  ,{find:"CP",year:{"SLP2004":34,"SLP2005":5,"SLP2008":0}}
-  ,{find:"CW",year:{"SLP2004":2301,"SLP2005":6,"SLP2008":116}}
-  ,{find:"CW1",year:{"SLP2004":237,"SLP2005":1724,"SLP2008":0}}
-  ,{find:"CW2",year:{"SLP2004":124,"SLP2005":621,"SLP2008":0}}
-  ,{find:"DO",year:{"SLP2004":22,"SLP2005":0,"SLP2008":1}}
-  ,{find:"DO1",year:{"SLP2004":53,"SLP2005":54,"SLP2008":0}}
-  ,{find:"DO2",year:{"SLP2004":39,"SLP2005":24,"SLP2008":0}}
-  ,{find:"GL",year:{"SLP2004":74,"SLP2005":312,"SLP2008":22}}
-  ,{find:"IMB",year:{"SLP2004":835,"SLP2005":142,"SLP2008":3}}
-  ,{find:"IMC",year:{"SLP2004":15,"SLP2005":0,"SLP2008":0}}
-  ,{find:"IMP",year:{"SLP2004":815,"SLP2005":371,"SLP2008":0}}
-  ,{find:"ITS",year:{"SLP2004":4,"SLP2005":19,"SLP2008":0}}
-  ,{find:"LW",year:{"SLP2004":7,"SLP2005":3,"SLP2008":0}}
-  ,{find:"MS",year:{"SLP2004":5,"SLP2005":0,"SLP2008":0}}
-  ,{find:"OC",year:{"SLP2004":15,"SLP2005":0,"SLP2008":0}}
-  ,{find:"PS",year:{"SLP2004":8,"SLP2005":0,"SLP2008":0}}
-  ,{find:"PW",year:{"SLP2004":792,"SLP2005":571,"SLP2008":4}}
-  ,{find:"RBT",year:{"SLP2004":29,"SLP2005":143,"SLP2008":27}}
-  ,{find:"RTW",year:{"SLP2004":2,"SLP2005":10,"SLP2008":0}}
-  ,{find:"STR",year:{"SLP2004":14,"SLP2005":1,"SLP2008":0}}
-  ,{find:"STV",year:{"SLP2004":52,"SLP2005":0,"SLP2008":0}}
-  ,{find:"SV",year:{"SLP2004":6,"SLP2005":0,"SLP2008":0}}
-  ,{find:"TIL",year:{"SLP2004":3569,"SLP2005":1301,"SLP2008":10}}
-  // ,{find:"UNI",year:{"SLP2004":3276,"SLP2005":4881,"SLP2008":0}}
-  ,{find:"WAS",year:{"SLP2004":26,"SLP2005":0,"SLP2008":0}}
-  ,{find:"FLI",year:{"SLP2004":0,"SLP2005":31,"SLP2008":0}}
-  ,{find:"UN",year:{"SLP2004":0,"SLP2005":293,"SLP2008":180}}
-  ,{find:"BT",year:{"SLP2004":0,"SLP2005":0,"SLP2008":19}}
+  {"find":"ARCH","year":{"SLP2004":12,"SLP2005":0,"SLP2008":0}},
+  {"find":"ARS","year":{"SLP2004":39,"SLP2005":27,"SLP2008":0}},
+  {"find":"AU","year":{"SLP2004":7,"SLP2005":4,"SLP2008":0}},
+  {"find":"BG","year":{"SLP2004":134,"SLP2005":120,"SLP2008":0}},
+  {"find":"CC","year":{"SLP2004":193,"SLP2005":10,"SLP2008":0}},
+  {"find":"CKW","year":{"SLP2004":8,"SLP2005":0,"SLP2008":0}},
+  {"find":"CP","year":{"SLP2004":34,"SLP2005":5,"SLP2008":0}},
+  {"find":"CW","year":{"SLP2004":2301,"SLP2005":6,"SLP2008":116}},
+  {"find":"CW1","year":{"SLP2004":237,"SLP2005":1724,"SLP2008":0}},
+  {"find":"CW2","year":{"SLP2004":124,"SLP2005":621,"SLP2008":0}},
+  {"find":"DO","year":{"SLP2004":22,"SLP2005":0,"SLP2008":1}},
+  {"find":"DO1","year":{"SLP2004":53,"SLP2005":54,"SLP2008":0}},
+  {"find":"DO2","year":{"SLP2004":39,"SLP2005":24,"SLP2008":0}},
+  {"find":"GL","year":{"SLP2004":74,"SLP2005":312,"SLP2008":22}},
+  {"find":"IMB","year":{"SLP2004":835,"SLP2005":142,"SLP2008":3}},
+  {"find":"IMC","year":{"SLP2004":15,"SLP2005":0,"SLP2008":0}},
+  {"find":"IMP","year":{"SLP2004":815,"SLP2005":371,"SLP2008":0}},
+  {"find":"ITS","year":{"SLP2004":4,"SLP2005":19,"SLP2008":0}},
+  {"find":"LW","year":{"SLP2004":7,"SLP2005":3,"SLP2008":0}},
+  {"find":"MS","year":{"SLP2004":5,"SLP2005":0,"SLP2008":0}},
+  {"find":"OC","year":{"SLP2004":15,"SLP2005":0,"SLP2008":0}},
+  {"find":"PS","year":{"SLP2004":8,"SLP2005":0,"SLP2008":0}},
+  {"find":"PW","year":{"SLP2004":792,"SLP2005":571,"SLP2008":4}},
+  {"find":"RBT","year":{"SLP2004":29,"SLP2005":143,"SLP2008":27}},
+  {"find":"RTW","year":{"SLP2004":2,"SLP2005":10,"SLP2008":0}},
+  {"find":"STR","year":{"SLP2004":14,"SLP2005":1,"SLP2008":0}},
+  {"find":"STV","year":{"SLP2004":52,"SLP2005":0,"SLP2008":0}},
+  {"find":"SV","year":{"SLP2004":6,"SLP2005":0,"SLP2008":0}},
+  {"find":"TIL","year":{"SLP2004":3569,"SLP2005":1301,"SLP2008":10}},
+  // {"find":"UNI","year":{"SLP2004":3276,"SLP2005":4881,"SLP2008":0}},
+  {"find":"WAS","year":{"SLP2004":26,"SLP2005":0,"SLP2008":0}},
+  {"find":"FLI","year":{"SLP2004":0,"SLP2005":31,"SLP2008":0}},
+  {"find":"UN","year":{"SLP2004":0,"SLP2005":293,"SLP2008":180}},
+  {"find":"BT","year":{"SLP2004":0,"SLP2005":0,"SLP2008":19}}
 ];
 
+console.log(ware)
 var dash = d3.select('#dashboard')
 var check = 0;
-
-d3.csv("data/SLP_total_magled_by_period_red.csv", function(data) {
-  console.log(data);
-  d3.nest()
-
-})
 
 function change() {
   if (check == 0) {
@@ -93,7 +88,10 @@ console.log(grBl(1));
 
 function segColor(c){ return {SLP2004:"#41b6c4",SLP2005:"#7fcdbb",SLP2008:"#c7e9b4"}[c]; }
 
-dashboard('#dashboard', ware);
+d3.json("data/finds_type.json", function(data) {
+  console.log("json", data);
+  dashboard('#dashboard', ware);
+})
 
 function dashboard(id, fData){
 
@@ -110,7 +108,7 @@ function dashboard(id, fData){
     // function to handle histogram.
     function histoGram(fD){
         var hG={},    hGDim = {t: 40, r: 10, b: 40, l: 10};
-        hGDim.w = 600 - hGDim.l - hGDim.r,
+        hGDim.w = 700 - hGDim.l - hGDim.r,
         hGDim.h = 350 - hGDim.t - hGDim.b;
 
         //create svg for histogram.
@@ -238,8 +236,8 @@ function dashboard(id, fData){
 
         d3.select(".pie").append("g")
           .append("text")
-            .attr("x", 50)
-            .attr("y", 55)
+            .attr("x", 32)
+            .attr("y", 30)
             .attr("dy", "0.32em")
             .attr("fill", "black")
             .attr("font-size", "20px")

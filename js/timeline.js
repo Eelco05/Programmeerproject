@@ -32,7 +32,7 @@ function changeYear(i) {
 function timeline (data) {
   
   var svg = d3.select("#timeline"),
-      margin = {top: 20, right: 20, bottom: 40, left: 20},
+      margin = {top: 20, right: 20, bottom: 50, left: 20},
       width = +svg.attr("width") - margin.left - margin.right,
       height = +svg.attr("height") - margin.top - margin.bottom,
       
