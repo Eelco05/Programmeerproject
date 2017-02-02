@@ -97,8 +97,11 @@ path:hover { opacity: 0.5; }
 .axis line { fill: none; stroke: #000; shape-rendering: crispEdges; }
 
 .x.axis path {  display: none; }
-.histogram { background-color: white; border: 2px solid steelblue; }
 .pie { margin-left: 20px; }
+
+.histogram { 
+  background-color: rgba(256, 265, 265, 0.5); 
+  border: 2px solid steelblue; }
 
 /* dashboard legend */
 .legend {
@@ -115,7 +118,7 @@ path:hover { opacity: 0.5; }
 
 /*timeline*/
 #timeline {
-  background-color: white;
+  background-color: rgba(256, 265, 265, 0.7);
   margin-left: 90px;
   border: 2px solid steelblue;
   overflow : auto;
@@ -128,7 +131,14 @@ path:hover { opacity: 0.5; }
   max-height: 92px;
 }
 
+#timeline_legend {
+  display: inline-block;
+  position: relative;
+  overflow: auto;
+}
+
 #timeline_legend table {
+  
   width: 300px;
   font-size: 13.5px;
   color: black;
