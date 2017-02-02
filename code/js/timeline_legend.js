@@ -14,8 +14,9 @@
 //                 \  /
 //                  \/
 
+// seperate d3 visualisation to show
+
 function colorLegend () {
-	// console.log("legend");
 
 	var w = 400, h = 140;
 
@@ -58,11 +59,6 @@ function colorLegend () {
 	var yLog = d3.scaleLog()
 			.range([w - 100, 0])
 			.domain([7443, 1]);
-
-	// var yAxis = d3.svg.axis()
-	// 		.scale(y)
-	// 		.orient("right")
-	// 		.ticks(20, d3.format(",.1s"));
 
 	key.append("g")
 			.attr("class", "y axis")

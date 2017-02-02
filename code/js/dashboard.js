@@ -14,8 +14,10 @@
 //                 \  /
 //                  \/
 
+// based on Pasha's dashboard, as found at http://bl.ocks.org/NPashaP/96447623ef4d342ee09b
+
 var check = 0;
-change(0)
+change(check)
 
 function change() {
   if (check == 0) {
@@ -34,12 +36,13 @@ function change() {
   } 
 };
 
-var grBl = d3.scale.linear().range([0,2]).domain(["blue", "green"])
-
+// assign colors to campaign years
 function segColor(c){ return {SLP2004:"#41b6c4",SLP2005:"#7fcdbb",SLP2008:"#c7e9b4"}[c]; }
 
+// main function
 function dashboard(id, fData){
 
+    // set default bar color
     var barColor = 'steelblue';
 
     // compute total for each state.
@@ -47,10 +50,13 @@ function dashboard(id, fData){
         d.total=d.year.SLP2004+d.year.SLP2005+d.year.SLP2008;
     });
 
+    // sorting data
     fData.sort(function(a, b) { return b.total - a.total; });
 
     // function to handle histogram.
     function histoGram(fD){
+        
+        // visualization dimentions
         var hG={},    hGDim = {t: 40, r: 10, b: 40, l: 10};
         hGDim.w = 700 - hGDim.l - hGDim.r,
         hGDim.h = 350 - hGDim.t - hGDim.b;
@@ -105,11 +111,9 @@ function dashboard(id, fData){
             .attr("text-anchor", "middle")
             .style("font-size", "11");
 
-        // bars.select("#dashboard")
-        //   .select("rect")
-        //   .data(fD.sort(function(a, b){return b-a}))
+        // utility function to be called on mouseover.
+        function mouseover(d){  
 
-        function mouseover(d){  // utility function to be called on mouseover.
             // filter for selected state.
             var st = fData.filter(function(s){ return s.find == d[0];})[0],
                 nD = d3.keys(st.year).map(function(s){ return {type:s, freq:st.year[s]};});
@@ -119,7 +123,9 @@ function dashboard(id, fData){
             leg.update(nD);
         }
 
-        function mouseout(d){    // utility function to be called on mouseout.
+        // utility function to be called on mouseout.
+        function mouseout(d){
+
             // reset the pie-chart and legend.
             pC.update(tF);
             leg.update(tF);
@@ -127,6 +133,7 @@ function dashboard(id, fData){
 
         // create function to update the bars. This will be used by pie-chart.
         hG.update = function(nD, color){
+
             // update the domain of the y-axis map to reflect change in frequencies.
             y.domain([0, d3.max(nD, function(d) { return d[1]; })]);
 
@@ -134,13 +141,17 @@ function dashboard(id, fData){
             var bars = hGsvg.selectAll(".bar").data(nD);
 
             // transition the height and color of rectangles.
-            bars.select("rect").transition().duration(500)
+            bars.select("rect")
+            .transition()
+                .duration(500)
                 .attr("y", function(d) {return y(d[1]); })
                 .attr("height", function(d) { return hGDim.h - y(d[1]); })
                 .attr("fill", color);
 
             // transition the frequency labels location and change value.
-            bars.select("text").transition().duration(500)
+            bars.select("text")
+            .transition()
+                .duration(500)
                 .text(function(d){ return d3.format(",")(d[1])})
                 .attr("y", function(d) {return y(d[1])-5; });
         }
@@ -149,6 +160,8 @@ function dashboard(id, fData){
 
     // function to handle pieChart.
     function pieChart(pD){
+
+        // visualization dimentions
         var pC ={},    pieDim ={w:225, h: 350};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
 
@@ -165,8 +178,8 @@ function dashboard(id, fData){
 
         // create a function to compute the pie slice angles.
         var pie = d3.layout.pie()
-        .sort(null)
-        .value(function(d) { return d.freq; });
+            .sort(null)
+            .value(function(d) { return d.freq; });
 
         // Draw the pie slices.
         piesvg.selectAll("path")
@@ -191,6 +204,7 @@ function dashboard(id, fData){
 
         // create function to update pie-chart. This will be used by histogram.
         pC.update = function(nD){
+
             piesvg.selectAll("path")
             .data(pie(nD))
                 .transition().duration(500)
@@ -198,19 +212,21 @@ function dashboard(id, fData){
         }
         // Utility function to be called on mouseover a pie slice.
         function mouseover(d){
+
             // call the update function of histogram with new data.
             hG.update(fData.map(function(v){
                 return [v.find,v.year[d.data.type]];}),segColor(d.data.type));
         }
         //Utility function to be called on mouseout a pie slice.
         function mouseout(d){
+
             // call the update function of histogram with all data.
             hG.update(fData.map(function(v){
                 return [v.find,v.total];}), barColor);
         }
-        // Animating the pie-slice requiring a custom function which specifies
-        // how the intermediate paths should be drawn.
+        // Animating the pie-slice requiring a custom function which specifies how the intermediate paths should be drawn.
         function arcTween(a) {
+
             var i = d3.interpolate(this._current, a);
             this._current = i(0);
             return function(t) { return arc(i(t));    };
@@ -220,6 +236,7 @@ function dashboard(id, fData){
 
     // function to handle legend.
     function legend(lD){
+       
         var leg = {};
 
         // create table for legend.
@@ -259,6 +276,7 @@ function dashboard(id, fData){
 
         // Utility function to be used to update the legend.
         leg.update = function(nD){
+
             // update the data attached to the row elements.
             var l = legend.select("tbody")
             .selectAll("tr")
@@ -273,14 +291,13 @@ function dashboard(id, fData){
             .text(function(d){ return getLegend(d,nD);});
         }
 
-        function getLegend(d,aD){ // Utility function to compute percentage.
+        // Utility function to compute percentage.
+        function getLegend(d,aD){ 
+
             return d3.format(".0%")(d.freq/d3.sum(aD.map(function(v){ return v.freq; })));
         }
-
         return leg;
     }
-
-    var legName = ["Sites visited in 2004", "Sites visited in 2005", "Sites visited in 2008"]
 
     // calculate total frequency by segment for all state.
     var tF = ['SLP2004','SLP2005','SLP2008'].map(function(d){
@@ -290,7 +307,8 @@ function dashboard(id, fData){
     // calculate total frequency by state for all segment.
     var sF = fData.map(function(d){return [d.find,d.total];});
 
-    var pC = pieChart(tF), // create the pie-chart.
-        hG = histoGram(sF), // create the histogram.
-        leg= legend(tF);  // create the legend.
+    // initialize entire dashboard
+    var pC = pieChart(tF),
+        hG = histoGram(sF),
+        leg= legend(tF);
 }

@@ -13,7 +13,8 @@
 //                 _[]_
 //                 \  /
 //                  \/
-// 
+
+// build with the guide provided on https://developers.google.com/maps/documentation/javascript/adding-a-google-map
 
 function initMap() {
   var center = {lat: 41.552772, lng: 14.745485};

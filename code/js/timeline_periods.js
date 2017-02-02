@@ -14,13 +14,11 @@
 //                 \  /
 //                  \/
 
+// based on the work of Justin Freels at http://bl.ocks.org/jfreels/6734025
+
 d3.csv('data/periods_timescale.csv', function (error,data) {
 
-	// console.log("table");
-
   function tabulate(data, columns) {
-  		// console.log(data);
-  		// console.log(columns);
 
 		var table = d3.select('#timeline_legend')
 			.append('table');

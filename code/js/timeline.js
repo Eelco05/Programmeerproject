@@ -14,6 +14,8 @@
 //                 \  /
 //                  \/
 
+// based on the work of Mike Bostock at https://bl.ocks.org/mbostock/3886208
+
 var dataLoc = ["data/finds_period_total.json", "data/finds_period_2004.json", "data/finds_period_2005.json"];
     year = 0;
 
