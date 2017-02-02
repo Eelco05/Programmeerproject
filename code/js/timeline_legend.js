@@ -22,9 +22,7 @@ function colorLegend () {
 	var width = 400, height = 140;
 
 	// scaling legend logarithmically
-	var yLog = d3.scaleLog()
-			.range([width - 100, 0])
-			.domain([7443, 1]);
+	var yLog = d3.scaleLog().range([width - 100, 0]).domain([7443, 1]);
 
 	// creating svg
 	var key = d3.select("#timeline_legend")
