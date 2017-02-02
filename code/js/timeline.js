@@ -86,7 +86,7 @@ function timeline (data) {
       .attr("class", function(d) { return d.Period; })
       .attr("x", function(d) { return scaleX(d.low); })
       .attr("y", function(d) { return scaleY(d.Period); })
-      .attr("height", height/data.length) //function(d) { return logScale(d.Number); })
+      .attr("height", height/data.length)
       .attr("width", function(d) { return scaleX(d.high) - scaleX(d.low); })
       .attr("fill", function(d) { return colorScale(d.Number) })
       .on('mouseover', tool_tip.show)
