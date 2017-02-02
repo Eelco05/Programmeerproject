@@ -262,3 +262,6 @@ path:hover { opacity: 0.5; }
   top: 100%;
   left: 0;
 }
+
+#rick { vertical-align: bottom; }
+#link { font-size: 6px }
