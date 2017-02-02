@@ -17,12 +17,13 @@ These two visualizations, intimately linked, show the amount of certain types of
 When the user hovers over the piechart, the histogram changes to represent the different find ceramic type found in the year the user had highlighted. In this same way, the pie chart changes how many of a ceramic type was found over the different years.
 <br>
 Lastly, the user can click on the switch above the histogram to change from displaying ceramic as a find category, to showing other find categories.
+<br>
+At the bottom of the page an additional link is added to the complete preliminary report, which includes an appendix that shows what every abbreviation means.
 
 ### Timeline (Find periods)
-The timeline shows the relative dating of the finds. This visualisation has three elements:
+The timeline shows the relative dating of the finds. This visualisation has three elements. Firstly the horizontal bar chart. This shows on the x-axis a timeline, where every date visible corrisponds to a time period. The different bars show dating ranges of finds. Hovering over each bar will show its dating, both in abreviated periods and in dates AD, and the amount of finds with this dating range. The coloring of the bars indicates the amount of finds that per dating range, scaled logarithmicelly. This is shown in the bar at the bottom right of the graph, above which is a legend is shown that diplays to the user the meaning of each shorthand period signifiër and its dating range.
 
-#### Horizontal bar chart:
-This shows on the x-axis a timeline, where every date visible corrisponds to a time period. The different bars show dating ranges of finds. Hovering over each bar will show the dating, both in abreviated periods and in dates AD
+#### 
 
 
 ## Challenges
