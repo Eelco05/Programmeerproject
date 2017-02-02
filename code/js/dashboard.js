@@ -17,7 +17,7 @@
 // based on Pasha's dashboard, as found at http://bl.ocks.org/NPashaP/96447623ef4d342ee09b
 
 var check = 0;
-changeSwitch(check)
+change(check)
 
 // switch between ceramic and other finds with switch
 function change() {
