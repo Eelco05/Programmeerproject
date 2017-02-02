@@ -1,0 +1,7 @@
+[
+   {"find":"STO","year":{"SLP2004":31,"SLP2005":71,"SLP2008":0}},
+   {"find":"GLA","year":{"SLP2004":7,"SLP2005":2,"SLP2008":0}},
+   {"find":"MET","year":{"SLP2004":9,"SLP2005":1,"SLP2008":0}},
+   {"find":"SHE","year":{"SLP2004":1,"SLP2005":0,"SLP2008":0}},
+   {"find":"VAR","year":{"SLP2004":0,"SLP2005":13,"SLP2008":0}}
+]

@@ -14,89 +14,33 @@
 //                 \  /
 //                  \/
 
-var obj = [
-   {find:"STO",year:{SLP2004:31,SLP2005:71,SLP2008:0}}
-   ,{find:"GLA",year:{SLP2004:7,SLP2005:2,SLP2008:0}}
-  //  ,{find:"CER",year:{SLP2004:12767,SLP2005:10646,SLP2008:382}}
-   ,{find:"MET",year:{SLP2004:9,SLP2005:1,SLP2008:0}}
-   ,{find:"SHE",year:{SLP2004:1,SLP2005:0,SLP2008:0}}
-   ,{find:"VAR",year:{SLP2004:0,SLP2005:13,SLP2008:0}}
-];
-
-var ware = [
-  {"find":"ARCH","year":{"SLP2004":12,"SLP2005":0,"SLP2008":0}},
-  {"find":"ARS","year":{"SLP2004":39,"SLP2005":27,"SLP2008":0}},
-  {"find":"AU","year":{"SLP2004":7,"SLP2005":4,"SLP2008":0}},
-  {"find":"BG","year":{"SLP2004":134,"SLP2005":120,"SLP2008":0}},
-  {"find":"CC","year":{"SLP2004":193,"SLP2005":10,"SLP2008":0}},
-  {"find":"CKW","year":{"SLP2004":8,"SLP2005":0,"SLP2008":0}},
-  {"find":"CP","year":{"SLP2004":34,"SLP2005":5,"SLP2008":0}},
-  {"find":"CW","year":{"SLP2004":2301,"SLP2005":6,"SLP2008":116}},
-  {"find":"CW1","year":{"SLP2004":237,"SLP2005":1724,"SLP2008":0}},
-  {"find":"CW2","year":{"SLP2004":124,"SLP2005":621,"SLP2008":0}},
-  {"find":"DO","year":{"SLP2004":22,"SLP2005":0,"SLP2008":1}},
-  {"find":"DO1","year":{"SLP2004":53,"SLP2005":54,"SLP2008":0}},
-  {"find":"DO2","year":{"SLP2004":39,"SLP2005":24,"SLP2008":0}},
-  {"find":"GL","year":{"SLP2004":74,"SLP2005":312,"SLP2008":22}},
-  {"find":"IMB","year":{"SLP2004":835,"SLP2005":142,"SLP2008":3}},
-  {"find":"IMC","year":{"SLP2004":15,"SLP2005":0,"SLP2008":0}},
-  {"find":"IMP","year":{"SLP2004":815,"SLP2005":371,"SLP2008":0}},
-  {"find":"ITS","year":{"SLP2004":4,"SLP2005":19,"SLP2008":0}},
-  {"find":"LW","year":{"SLP2004":7,"SLP2005":3,"SLP2008":0}},
-  {"find":"MS","year":{"SLP2004":5,"SLP2005":0,"SLP2008":0}},
-  {"find":"OC","year":{"SLP2004":15,"SLP2005":0,"SLP2008":0}},
-  {"find":"PS","year":{"SLP2004":8,"SLP2005":0,"SLP2008":0}},
-  {"find":"PW","year":{"SLP2004":792,"SLP2005":571,"SLP2008":4}},
-  {"find":"RBT","year":{"SLP2004":29,"SLP2005":143,"SLP2008":27}},
-  {"find":"RTW","year":{"SLP2004":2,"SLP2005":10,"SLP2008":0}},
-  {"find":"STR","year":{"SLP2004":14,"SLP2005":1,"SLP2008":0}},
-  {"find":"STV","year":{"SLP2004":52,"SLP2005":0,"SLP2008":0}},
-  {"find":"SV","year":{"SLP2004":6,"SLP2005":0,"SLP2008":0}},
-  {"find":"TIL","year":{"SLP2004":3569,"SLP2005":1301,"SLP2008":10}},
-  // {"find":"UNI","year":{"SLP2004":3276,"SLP2005":4881,"SLP2008":0}},
-  {"find":"WAS","year":{"SLP2004":26,"SLP2005":0,"SLP2008":0}},
-  {"find":"FLI","year":{"SLP2004":0,"SLP2005":31,"SLP2008":0}},
-  {"find":"UN","year":{"SLP2004":0,"SLP2005":293,"SLP2008":180}},
-  {"find":"BT","year":{"SLP2004":0,"SLP2005":0,"SLP2008":19}}
-];
-
-console.log(ware)
-var dash = d3.select('#dashboard')
 var check = 0;
+change(0)
 
 function change() {
   if (check == 0) {
-    artefact = obj;
-    dash.selectAll("*").remove();
-    // console.log("check 0", artefact);
-    dashboard('#dashboard', obj);
+    d3.select('#dashboard').selectAll("*").remove();
+    d3.json("data/finds_type.json", function(data) {
+    dashboard('#dashboard', data);
+    })
     check = 1; 
   }
   else {
-    artefact = ware;
-    dash.selectAll("*").remove(); 
-    dashboard('#dashboard', artefact);
-    // console.log("check 1", artefact);
+    d3.select('#dashboard').selectAll("*").remove(); 
+    d3.json("data/finds_type_other.json", function(data) {
+    dashboard('#dashboard', data);
+    })
     check = 0;
   } 
 };
 
 var grBl = d3.scale.linear().range([0,2]).domain(["blue", "green"])
 
-
-console.log(grBl(1));
-
 function segColor(c){ return {SLP2004:"#41b6c4",SLP2005:"#7fcdbb",SLP2008:"#c7e9b4"}[c]; }
-
-d3.json("data/finds_type.json", function(data) {
-  console.log("json", data);
-  dashboard('#dashboard', ware);
-})
 
 function dashboard(id, fData){
 
     var barColor = 'steelblue';
-    
 
     // compute total for each state.
     fData.forEach(function(d){
