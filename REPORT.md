@@ -20,7 +20,9 @@ Lastly, the user can click on the switch above the histogram to change from disp
 
 ### Timeline (Find periods)
 The timeline shows the relative dating of the finds. This visualisation has three elements:
+
 #### Horizontal bar chart:
+This shows on the x-axis a timeline, where every date visible corrisponds to a time period. The different bars show dating ranges of finds. Hovering over each bar will show the dating, both in abreviated periods and in dates AD
 
 
 ## Challenges

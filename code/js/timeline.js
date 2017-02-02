@@ -64,7 +64,7 @@ function timeline (data) {
       .offset([-8, 0])
       .html(function(d) { return "Period: " + "<strong>" + d.Period + "</strong>" + "<br>" + 
                                  "Total finds: " + "<strong>" + d.Number + "</strong>" + "<br>" +
-                                 "Timespan: " + "<strong>" + d.low + "</strong>" + " to " + "<strong>" + d.high + "</strong>" + " BC"; 
+                                 "Timespan: " + "<strong>" + d.low + "</strong>" + " to " + "<strong>" + d.high + "</strong>" + " AD"; 
   });
   g.call(tool_tip)
 
