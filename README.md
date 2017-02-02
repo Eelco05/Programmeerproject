@@ -14,9 +14,7 @@ And this is what they find:
 
 Plus nog een hele hoop data. Deze wordt echter maar op een beperkte manieren gevisualiseerd (naast de standaard grafieken):
 
-![Field survey](/doc/image3.jpg)
-![Field survey](/doc/image4.jpg)
-![Field survey](/doc/image5.jpg)
+![Field survey](/doc/image3.jpg),![Field survey](/doc/image4.jpg),![Field survey](/doc/image5.jpg)
 
 In de archeologie is context erg belangrijk voor het begrijpen en interpreteren van je materiaal, maar de data die deze context weergeeft is vaak complex, veelzijdig en moeilijk te overzien. Visualisaties zoals hierboven zeggen wel iets over het onderzoek, maar vaak los aan gerefereerd en dan alleen in de zin "Dit is onze data. Hier gaat onder verhaal over". De visualisaties zelf vertellen geen verhaal.
 
