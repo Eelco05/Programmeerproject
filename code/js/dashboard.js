@@ -22,22 +22,28 @@ change(check)
 function change() {
   if (check == 0) {
     d3.select('#dashboard').selectAll("*").remove();
-    d3.json("data/finds_type.json", function(data) {
-    dashboard('#dashboard', data);
+    d3.json("data/finds_type.json", function(error, data) {
+        if (error) throw error;
+        dashboard('#dashboard', data);
+        check = 1; 
     })
-    check = 1; 
   }
   else {
     d3.select('#dashboard').selectAll("*").remove(); 
-    d3.json("data/finds_type_other.json", function(data) {
-    dashboard('#dashboard', data);
-    })
-    check = 0;
+    d3.json("data/finds_type_other.json", function(error, data) {
+        if (error) throw error;
+        dashboard('#dashboard', data);
+        check = 0;
+    }) 
   } 
 };
 
 // assign colors to campaign years
-function segColor(c){ return {SLP2004:"#41b6c4",SLP2005:"#7fcdbb",SLP2008:"#c7e9b4"}[c]; }
+function segColor(c){ return {
+    SLP2004:"#41b6c4",
+    SLP2005:"#7fcdbb",
+    SLP2008:"#c7e9b4"}[c]; 
+}
 
 // main function
 function dashboard(id, fData){

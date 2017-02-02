@@ -26,13 +26,20 @@ function changeYear(i) {
     d3.json(dataLoc[i], function(error, data) {
     if (error) throw error;
       d3.select("#timeline").selectAll("*").remove();
-      console.log(data)
       timeline(data);
   })
 }
 
+// gridlines in x axis function
+function make_x_gridlines(scaleX) {   
+    return d3.axisBottom(scaleX)
+        .tickValues([-10000,-7000,-3000,-350,-50,500,1500,1800]);
+}
+
+// main function
 function timeline (data) {
   
+  // visualisation dimentions
   var svg = d3.select("#timeline"),
       margin = {top: 20, right: 20, bottom: 50, left: 20},
       width = +svg.attr("width") - margin.left - margin.right,
@@ -42,33 +49,27 @@ function timeline (data) {
       .attr("class", "barChart")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var keys = [];
-  var keysRange = []
-  var calcMean;
-
+  // setting data scale
   var colorScale = d3.scaleLog().domain([1, 7443]).range(['lightgray','blue']);
-
   var logScale = d3.scaleLog().domain([1, 7443]).range([1,2]);
 
-  data.forEach(function(d, i) { keys[i] = d.Number; i++; })
+  // sorting data by mean
+  var calcMean;
   data.forEach(function(d, i) { calcMean = d.high + d.low; d.mean = (calcMean / 2) });
-  data.forEach(function(d, i) { keysRange[i] = logScale(keys[i]); i++; })
-
   data.sort(function(a, b) { return b.mean - a.mean; });
 
-  // console.log(data);
-
-  var low = d3.min(data, function(d) { return d.low})
-  var high = d3.max(data, function(d) { return d.high})
-
-  var scaleX = d3.scaleLinear().domain([-10000, high]).nice().range([0, width]);
-
+  // scaling axis
+  var scaleX = d3.scaleLinear()
+      .domain([-10000, d3.max(data, function(d) { return d.high})]).nice()
+      .range([0, width]);
+  
   var scaleY = d3.scaleBand()
       .domain(data.map(function(d) { return d.Period; }))
       .range([0, height])
       .paddingInner(0.05)
       .align(0.1);
 
+  // adding tooltip
   var tool_tip = d3.tip()
       .attr("class", "d3-tip")
       .style("opacity", 0.5)
@@ -79,20 +80,16 @@ function timeline (data) {
   });
   g.call(tool_tip)
 
-  // gridlines in x axis function
-  function make_x_gridlines() {   
-      return d3.axisBottom(scaleX)
-          .tickValues([-10000,-7000,-3000,-350,-50,500,1500,1800]);
-  }
-
+  // adding gridlines
   g.append("g")
     .attr("class", "grid")
     .attr("transform", "translate(0," + height + ")")
-    .call(make_x_gridlines()
+    .call(make_x_gridlines(scaleX)
       .tickSize(10-height)
       .tickFormat("")
       );
 
+  // adding bars
   g.append("g")
       .attr("class", "bar")
     .selectAll("g")
@@ -107,6 +104,7 @@ function timeline (data) {
       .on('mouseover', tool_tip.show)
       .on('mouseout', tool_tip.hide);
 
+  // creating custom x-axis
   g.append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
@@ -125,9 +123,9 @@ function timeline (data) {
       .attr("text-anchor", "start")
       .text("Year BC/AD");
 
+  // adding title
   g.append("g")
-      .attr("class", "axis")
-      // .call(d3.axisLeft(scaleY))
+      .attr("class", "title")
     .append("text")
       .attr("x", -10)
       .attr("y", 0.5)

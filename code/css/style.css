@@ -23,14 +23,7 @@ html, body {
     font-family: Arvo;
     font-size: 16px;
     line-height: 1.5;
-}
-
-body {
     margin:0 auto;
-}
-
-h1, h2, h3 {
-    text-align: center;
 }
 
 h1 {
@@ -40,16 +33,15 @@ h1 {
   background-position: 50% 10%;
 }
 
-img {
-    width: 100%;
-    height: 100%;
-}
+h1, h2, h3 { text-align: center; }
 
-#appendix {
-  text-align: center;
-  font-size: 10px;
-  color: black;
-  border: 0.5px solid steelblue;
+/* centered page container*/
+.wrapper {
+    display: flex;
+    justify-content: center;
+    height: 80%;
+    width: 95%;
+    margin-top: 5px;
 }
 
 /* google map api */
@@ -62,19 +54,7 @@ img {
   margin-right: 10px
 }
 
-#profile {
-  margin-top: 50px;
-}
-
-/* centered page container*/
-.wrapper {
-    display: flex;
-    justify-content: center;
-    height: 80%;
-    width: 95%;
-    margin-top: 5px;
-}
-
+/* text area */
 .textblock text {
   color: black;
   position: relative;
@@ -90,24 +70,18 @@ img {
 
 .textblock h2 { max-width: 400px; }
 
-/* general svg */
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
 
+/* personal profile */
+#profile { margin-top: 50px; }
+
+/* rect styling */
 g rect {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
 
-g .bar rect text {
-  font-size: 12px;
-}
-
+g .bar rect text { font-size: 12px; }
 .bar rect { opacity: 0.8; }
 
 /* dashboard */
@@ -117,22 +91,11 @@ path:hover { opacity: 0.5; }
 .axis {  font: 10px Arvo; }
 
 .axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
+.axis line { fill: none; stroke: #000; shape-rendering: crispEdges; }
 
 .x.axis path {  display: none; }
-
-.histogram {
-  background-color: white;
-  border: 2px solid steelblue;
-}
-
-.pie {
-  margin-left: 20px;
-}
+.histogram { background-color: white; border: 2px solid steelblue; }
+.pie { margin-left: 20px; }
 
 /* dashboard legend */
 .legend {
@@ -143,17 +106,9 @@ path:hover { opacity: 0.5; }
     color: black;
     margin-left: 25px;
 }
-.legend td {
-    padding:4px 5px;
-    vertical-align: left;
-}
-.legendFreq, .legendPerc {
-    width:50px;
-}
-
-.legend svg {
-  border: 1px solid black;
-}
+.legend td { padding:4px 5px; }
+.legendFreq, .legendPerc { width:50px; }
+.legend svg { border: 1px solid black; }
 
 /*timeline*/
 #timeline {
@@ -181,17 +136,18 @@ path:hover { opacity: 0.5; }
 #timeline_legend tr:first-child { border-top:1px solid grey; }
 
 /*timeline grid*/
-.grid .tick {
-  stroke: lightgrey;
-  opacity: 0.2;
-  shape-rendering: crispEdges;
+.grid .tick { stroke: lightgrey; opacity: 0.2; }
+.grid path { stroke-width: 0; }
+
+/* timeline appendix */
+#appendix {
+  text-align: center;
+  font-size: 10px;
+  color: black;
+  border: 0.5px solid steelblue;
 }
 
-.grid path {
-  stroke-width: 0;
-}
-
-/* The switch - the box around the slider */
+/* The switch - the box around the slider based on the w3school slider at http://www.w3schools.com/howto/howto_css_switch.asp */
 .onoffswitch {
     position: absolute;
     width: 120px;

@@ -1,4 +1,3 @@
-
 // Programmeerproject
 
 // Eelco Alink <eelco.alink@gmail.com>
@@ -16,17 +15,26 @@
 
 // seperate d3 visualisation to show
 
+// main function
 function colorLegend () {
 
-	var w = 400, h = 140;
+	// visualistion dimensions
+	var width = 400, height = 140;
 
+	// scaling legend logarithmically
+	var yLog = d3.scaleLog()
+			.range([width - 100, 0])
+			.domain([7443, 1]);
+
+	// creating svg
 	var key = d3.select("#timeline_legend")
 		.append("svg")
 			.attr("class", "colorLegend")
 		.append("g")
-			.attr("width", w)
-			.attr("height", h);
+			.attr("width", width)
+			.attr("height", height);
 
+	// setting color gradient
 	var legend = key.append("defs")
 		.append("svg:linearGradient")
 			.attr("id", "gradient")
@@ -46,20 +54,14 @@ function colorLegend () {
 			.attr("stop-color", "lightgray")
 			.attr("stop-opacity", 1);
 
+	// adding color gradient to a rect
 	key.append("rect")
-			.attr("width", w - 100)
-			.attr("height", h - 100)
+			.attr("width", width - 100)
+			.attr("height", height - 100)
 			.style("fill", "url(#gradient)")
 			.attr("transform", "translate(0,10)");
 
-	var y = d3.scaleLinear()
-			.range([w - 100, 0])
-			.domain([7443, 1]);
-
-	var yLog = d3.scaleLog()
-			.range([w - 100, 0])
-			.domain([7443, 1]);
-
+	// adding custom log axis
 	key.append("g")
 			.attr("class", "y axis")
 			.attr("transform", "translate(0,50)")
@@ -72,5 +74,4 @@ function colorLegend () {
 			.attr("font-weight", "bold")
 			.attr("text-anchor", "start")
 			.text("Total number of finds (log)");
-
 }

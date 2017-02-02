@@ -18,13 +18,13 @@
 
 d3.csv('data/periods_timescale.csv', function (error,data) {
 
-  function tabulate(data, columns) {
+	// main function
+  	function tabulate(data, columns) {
 
-		var table = d3.select('#timeline_legend')
-			.append('table');
-
-		var thead = table.append('thead')
-		var	tbody = table.append('tbody');
+  		// creating table
+		var table = d3.select('#timeline_legend').append('table');
+			thead = table.append('thead')
+			tbody = table.append('tbody');
 
 		// append the header row
 		thead.append('tr')
@@ -46,15 +46,12 @@ d3.csv('data/periods_timescale.csv', function (error,data) {
 		      return {column: column, value: row[column]};
 		    });
 		  })
-		  .enter()
-		  .append('td')
+		  .enter().append('td')
 		    .text(function (d) { return d.value; });
 
 	  return table;
 	}
-
 	// render the table(s)
 	tabulate(data, ['Shorthand', 'Period', 'Timescale']); // 2 column table
 	colorLegend(data);
-
 });
