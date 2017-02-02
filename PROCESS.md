@@ -203,11 +203,27 @@
 - fixed numerous bugs
 
 ### ToDo
-1. legend for the find type page (probably not possible)
+1. legend for the find type page (probably not possible, future goal)
 2. add text to home, history and sites
-3. add page for references
+3. add page for references (needs to be fleshed out)
 4. add banner to top an bottom
 5. clean code to maintenance standard (bettercodehub)
 6. check code against site conditions (add header to files, with references)
 7. write report
 8. make demo
+
+## Day 19 02-02-'17
+
+### Standup
+- 
+
+### ToDO today
+1. add text to home, history and sites
+2. add more to references page
+3. check code for irregularities
+4. write report
+5. rewrite README
+6. put site through CSS validator
+
+### Work
+- 

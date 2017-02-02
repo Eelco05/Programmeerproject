@@ -54,7 +54,7 @@ img {
 
 /* google map api */
 #map {
-  height: 500px;
+  height: 550px;
   width: 40%;
   margin-left: 10px;
   margin-top: 10px;
@@ -71,9 +71,18 @@ img {
     margin-top: 5px;
 }
 
-.textblock a {
+.textblock text {
   color: black;
+  position: relative;
+  display: inline-block;
+  margin-left: 20px;
+  height: 500px;
+  max-width: 400px;
+  text-indent: 50px;
+  text-align: justify;
 }
+
+.textblock h2 { max-width: 400px; }
 
 /* general svg */
 .axis path,

@@ -13,7 +13,7 @@
 //                 _[]_
 //                 \  /
 //                  \/
-
+// 
 
 function initMap() {
   var center = {lat: 41.552772, lng: 14.745485};
@@ -37,20 +37,3 @@ function initMap() {
     map: map
   });
 };
-
-// {
-//     name: 'Samnite Sancuary',
-//     city: 'San Giovanni in Galdo, Italy',
-//     radius: 10,
-//     fillKey: 'Site',
-//     latitude: 41.590720,
-//     longitude: 14.752160
-//   },
-//   {
-//     name: 'Samnite Sancuary',
-//     city: 'Gildone, Italy',
-//     radius: 10,
-//     fillKey: 'Site',
-//     latitude: 41.510343,
-//     longitude: 14.739780
-//   }
