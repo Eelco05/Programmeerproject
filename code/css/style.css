@@ -51,7 +51,7 @@ h1, h2, h3 { text-align: center; }
   margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-right: 10px
+  margin-right: 10px;
 }
 
 /* text area */
@@ -71,7 +71,7 @@ h1, h2, h3 { text-align: center; }
 }
 
 .textblock h2 { max-width: 400px; }
-
+.textblock {   background-color: rgba(256, 265, 265, 0.3); }
 
 /* personal profile */
 #profile { margin-top: 50px; }
