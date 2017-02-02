@@ -225,7 +225,6 @@ path:hover { opacity: 0.5; }
   background: rgba(240, 240, 256, 0.5);
   color: black;
   border-radius: 1px;
-  border-color: 2px solid black;
   font-size: 14px;
   opacity: 0.5;
 }
