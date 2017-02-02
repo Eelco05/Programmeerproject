@@ -40,8 +40,9 @@ h1, h2, h3 { text-align: center; }
     display: flex;
     justify-content: center;
     height: 80%;
-    width: 95%;
+    width: 90%;
     margin-top: 5px;
+    margin-left: 5px;
 }
 
 /* google map api */
@@ -71,10 +72,10 @@ h1, h2, h3 { text-align: center; }
 }
 
 .textblock h2 { max-width: 400px; }
-.textblock {   background-color: rgba(256, 265, 265, 0.3); }
+.textblock { background-color: rgba(256, 265, 265, 0.3); }
 
 /* personal profile */
-#profile { margin-top: 50px; }
+#profile { margin-top: 50px; margin-left: 5px;}
 
 /* rect styling */
 g rect {
@@ -117,6 +118,7 @@ path:hover { opacity: 0.5; }
   background-color: white;
   margin-left: 90px;
   border: 2px solid steelblue;
+  overflow : auto;
 }
 
 .colorLegend {

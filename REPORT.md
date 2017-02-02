@@ -6,8 +6,7 @@ This website is meant to give a short impression of the perliminairy results of 
 My aim is be see if this can be done for the Sacred Landscape Project as a test case, this building toward making a framework for other projects. This way, complex findings and data can be shared between researchers and students, but also with the public.
 
 ## Technical design
-
-In use are 3 visualisations.
+Consists of three main components:
 
 ### (Con)Text
 Firstly there is the information about the study. This was gleaned from two preliminary reports. These are direct quotes. The original articles have been added for the more scientific minded site visiter.
