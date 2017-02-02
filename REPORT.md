@@ -27,7 +27,7 @@ At the bottom of the page an additional link is added to the complete preliminar
 ### Timeline (Find periods)
 The timeline shows the relative dating of the finds. This visualisation has three elements. Firstly the horizontal bar chart. This shows on the x-axis a timeline, where every date visible corrisponds to a time period. The different bars show dating ranges of finds. Hovering over each bar will show its dating, both in abreviated periods and in dates AD, and the amount of finds with this dating range. The coloring of the bars indicates the amount of finds that per dating range, scaled logarithmicelly. This is shown in the bar at the bottom right of the graph, above which is a legend is shown that diplays to the user the meaning of each shorthand period signifiër and its dating range.
 
-![Find periods page](/doc/screenshot_findtypes_final.png)
+![Find periods page](/doc/screenshot_findperiods_final.png)
 
 ## Challenges
 
