@@ -1,4 +1,5 @@
-#Process Book *Eelco Alink 10459006*
+#Process Book 
+By **Eelco Alink** ***10459006***
 
 ## Day 2 10-01-'17
 - Not a good start. Forgot to push proposel last night and didn't see it was to be in markup. Fixed this [09:01].

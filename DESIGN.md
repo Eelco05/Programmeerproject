@@ -1,4 +1,5 @@
 # Design
+By **Eelco Alink** ***10459006***
 
 ## What do i need?
 
