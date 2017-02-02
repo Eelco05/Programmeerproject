@@ -17,13 +17,13 @@
 // based on Pasha's dashboard, as found at http://bl.ocks.org/NPashaP/96447623ef4d342ee09b
 
 var check = 0;
-change(check)
+changeSwitch(check)
 
+// switch between ceramic and other finds with switch
 function change() {
   if (check == 0) {
     d3.select('#dashboard').selectAll("*").remove();
     d3.json("data/finds_type.json", function(error, data) {
-        if (error) throw error;
         dashboard('#dashboard', data);
         check = 1; 
     })
@@ -31,7 +31,6 @@ function change() {
   else {
     d3.select('#dashboard').selectAll("*").remove(); 
     d3.json("data/finds_type_other.json", function(error, data) {
-        if (error) throw error;
         dashboard('#dashboard', data);
         check = 0;
     }) 

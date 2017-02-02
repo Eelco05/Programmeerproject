@@ -29,12 +29,6 @@ function initMap() {
 
   map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 
-  var marker = new google.maps.Marker({
-    position: galdo,
-    map: map
-  });
-  var marker2 = new google.maps.Marker({
-    position: gildone,
-    map: map
-  });
+  var marker = new google.maps.Marker({ position: galdo, map: map });
+      marker2 = new google.maps.Marker({ position: gildone, map: map });
 };

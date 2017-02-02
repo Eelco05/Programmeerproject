@@ -1,4 +1,3 @@
-
 // Programmeerproject
 
 // Eelco Alink <eelco.alink@gmail.com>
@@ -18,22 +17,11 @@
 
 var dataLoc = ["data/finds_period_total.json", "data/finds_period_2004.json", "data/finds_period_2005.json"];
     year = 0;
-
 changeYear(year);
-
-function changeYear(i) { 
-  year = i 
-    d3.json(dataLoc[i], function(error, data) {
-    if (error) throw error;
-      d3.select("#timeline").selectAll("*").remove();
-      timeline(data);
-  })
-}
 
 // gridlines in x axis function
 function make_x_gridlines(scaleX) {   
-    return d3.axisBottom(scaleX)
-        .tickValues([-10000,-7000,-3000,-350,-50,500,1500,1800]);
+    return d3.axisBottom(scaleX).tickValues([-10000,-7000,-3000,-350,-50,500,1500,1800]);
 }
 
 // main function
