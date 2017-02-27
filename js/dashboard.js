@@ -24,6 +24,7 @@ function change() {
   if (check == 0) {
     d3.select('#dashboard').selectAll("*").remove();
     d3.json("data/finds_type.json", function(error, data) {
+        console.log(data);
         dashboard('#dashboard', data);
         check = 1; 
     })
